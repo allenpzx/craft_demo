@@ -1,0 +1,95 @@
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>继承</title>
+  <script>
+    function Animal() {　　　　
+      this.species = "动物";　　
+    }
+    Animal.prototype.age = 1;
+
+    //可以继承父函数的普通方法
+    function Cat(name, color) {　　　　
+      Animal.apply(this, arguments);　　　　
+      this.name = name;　　　　
+      this.color = color;　　
+    }
+
+    // // Cat.prototype = Animal.prototype;
+    // //上面这行会把Animal父函数的constructor修改，任何Cat的修改都会影响到Animal，可以用下面的这种方法
+    // Cat.prototype = new Animal();
+    // Cat.prototype.constructor=Cat;
+    // //子函数设置prototype下面必须跟一行constructor=cat
+
+    // Cat.prototype.age=6;
+    // // alert(Cat.prototype.age);
+    // // alert(Animal.prototype.age);
+
+    //2种继承prototype方法封装成函数,uber德语为向上的意思，备用一个可以直接调用修改父函数
+    function extend(Child, Parent) {
+
+      　　　　
+      var F = function() {};　　　　
+      F.prototype = Parent.prototype;　　　　
+      Child.prototype = new F();　　　　
+      Child.prototype.constructor = Child;　　　　
+      Child.uber = Parent.prototype;　　
+    }
+
+    function extend2(Child, Parent) {　　　　
+      var p = Parent.prototype;　　　　
+      var c = Child.prototype;　　　　
+      for (var i in p) {　　　　　　
+        c[i] = p[i];　　　　　　
+      }　　　　
+      c.uber = p;　　
+    }
+
+    extend(Cat, Animal);　　
+    var cat1 = new Cat("大毛", "黄色");　　
+    // alert(cat1.species); // 动物
+
+
+    var Chinese = {　　　　
+      nation: '中国'　　
+    };
+
+    var Doctor = {　　　　
+      career: '医生'　　
+    };
+
+    //原型链的方法
+    function object(o) {　　　　
+      function F() {}　　　　
+      F.prototype = o;　　　　
+      return new F();　　
+    }
+    // var Doctor = object(Chinese);
+
+    //拷贝的方法
+    function extendCopy(p) {　　　　
+      var c = {};　　　　
+      for (var i in p) {　　　　　　
+        c[i] = p[i];　　　　
+      }　　　　
+      c.uber = p;　　　　
+      return c;　　
+    }
+
+    Chinese.birthPlaces = ['北京','上海','香港'];
+    var Doctor=extendCopy(Chinese);
+    Doctor.birthPlaces.push('厦门');
+    // Doctor.career='666';
+    alert(Chinese.birthPlaces); //中国
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

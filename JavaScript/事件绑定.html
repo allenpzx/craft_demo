@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件绑定</title>
+  <script>
+
+  //事件绑定函数
+  function addE(obj,ev,fn)
+  {
+    if(obj.attachEvent)
+    {
+      obj.attachEvent('on'+ev,fn);
+    }
+    else
+    {
+      obj.addEventListener(ev,fn,false);
+    }
+  };
+
+window.onload=function ()
+{
+  var oBtn=document.getElementById('btn1');
+
+  addE(oBtn,'click',function (){
+    alert('a');
+  })
+  addE(oBtn,'click',function (){
+    alert('b');
+  })
+  // if(oBtn.attachEvent)
+  // {
+  //   //ie兼容
+  //   oBtn.attachEvent('onclick',function ()
+  //   {
+  //     alert('a')
+  //   });
+  //   oBtn.attachEvent('onclick',function ()
+  //   {
+  //     alert('bb')
+  //   });
+  // }
+  // else
+  // {
+  //   //其他浏览器
+  //   oBtn.addEventListener('click',function ()
+  //   {
+  //     alert('a')
+  //   },false);
+  //   oBtn.addEventListener('click',function ()
+  //   {
+  //     alert('bb')
+  //   },false);
+  // }
+};
+  </script>
+</head>
+<body>
+  <input id="btn1" type="button" value="123">
+</body>
+</html>

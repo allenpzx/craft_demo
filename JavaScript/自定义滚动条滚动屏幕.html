@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+     #parent{
+       width: 600px;
+       height: 20px;
+       background: #ccc;
+       position: relative;
+       margin: 10px auto;
+     }
+     #div1{
+       width: 20px;
+       height: 20px;
+       background: red;
+       position: absolute;
+       left: 0;
+       top: 0;
+     }
+     #div2{
+       width: 0;
+       height: 0;
+       background: blue;
+       filter: alpha(opacity:0);
+       opacity:0;
+     }
+     #div3
+     {
+       border: 2px solid black;
+       width: 400px;
+       height: 300px;
+       overflow: hidden;
+       position: relative;
+     }
+     #div4{
+       position: absolute;
+       left: 0;
+       top: 0;
+     }
+     #oA{
+       width: 20px;
+       height: 500px;
+       background: #ccc;
+       position: absolute;
+       left: 420px;
+       top: 50px;
+     }
+     #oa{
+       width: 20px;
+       height: 20px;
+       background: pink;
+       position: absolute;
+     }
+  </style>
+  <script>
+  window.onload = function() {
+
+    var oDiv = document.getElementById('div1');
+    var oDiv2= document.getElementById('div2');
+    var oParent=document.getElementById('parent');
+    var disX = 0;
+
+    var oA=document.getElementById('oA');
+    var oa=document.getElementById('oa');
+    var oDiv3=document.getElementById('div3');
+    var oDiv4=document.getElementById('div4');
+    var disY=0;
+
+    oDiv.onmousedown = function(ev)
+    {
+      var oEvent = ev || event;
+      disX = oEvent.clientX - oDiv.offsetLeft;
+
+      document.onmousemove = function(ev) {
+
+        var oEvent = ev || event;
+        var h = oEvent.clientX - disX;
+
+        //下面是拖拽边界
+        if (h < 0)
+        {
+          h = 0;
+        }
+        else if(h > oParent.offsetWidth-oDiv.offsetWidth)
+        {
+          h = oParent.offsetWidth-oDiv.offsetWidth;
+        }
+        oDiv.style.left = h + 'px';
+        //下面是控制的模块
+        var scale=h/(oParent.offsetWidth-oDiv.offsetWidth);
+        document.title=scale;
+        oDiv2.style.width=400*scale+'px';
+        oDiv2.style.height=400*scale+'px';
+        oDiv2.style.filter='alpha(opacity:'+scale*100+')';///兼容IE
+        oDiv2.style.opacity=scale;
+      };
+      document.onmouseup = function() {
+        document.onmousemove = null;
+        document.onmouseup = null;
+      };
+      //注意函数嵌套关系，onmousemove在onmousedown内
+      return false;
+      //屏蔽火狐的bug
+    };
+
+    //竖向滚动条
+    oa.onmousedown=function (ev)
+    {
+      var oEvent=ev||event;
+      disY=oEvent.clientY-oDiv4.offsetTop;
+
+      document.onmousemove=function (ev)
+      {
+        var oEvent=ev||event;
+        var y=oEvent.clientY-disY;
+
+        if(y<0)
+        {
+          y=0;
+        }
+        else if(y>oA.offsetHeight-oa.offsetHeight)
+        {
+          y=oA.offsetHeight-oa.offsetHeight
+        }
+        oa.style.top=y+'px';
+
+        var scale2=y/(oA.offsetHeight-oa.offsetHeight);
+        oDiv4.style.top=-scale2*(oDiv4.offsetHeight-oDiv3.offsetHeight)+'px';
+
+      };
+      document.onmouseup=function ()
+      {
+        document.onmousemove = null;
+        document.onmouseup = null;
+      };
+        return false;
+    };
+
+  };
+  </script>
+</head>
+<body>
+  <div id="parent">
+    <div id="div1"></div>
+  </div>
+  <div id="div2"></div>
+
+  <div id="oA">
+    <div id="oa"></div>
+  </div>
+  <div id="div3">
+    <div id="div4">
+      很多文字很
+      多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文
+      字很多文字很多文
+      字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文
+      字很多文字很多文字很
+      多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文
+      字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很
+      多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文
+      字很多文字
+      很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字
+      很多文字很多文
+      字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文
+      字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字很多文字
+    </div>
+  </div>
+</body>
+</html>

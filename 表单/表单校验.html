@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script> -->
+	<script src="jquery.js"></script>
+	<script src="jquery.validate.js"></script>
+	<style type="text/css">
+		body {
+		    font-size: 26px;
+		    line-height: 1.6;
+		}
+
+		p {
+		    margin: 10px 0;
+		}
+
+		label {
+		    display: inline-block;
+		    min-width: 140px;
+		}
+
+		label.error {
+		    margin-left: 10px;
+		    color: red;
+		}
+
+		input, button {
+		    font-size: 36px;
+		    line-height: 35px;
+		    border: 1px solid #999;
+		    min-width: 180px;
+		}
+
+		input.error {
+		    border: 1px solid red;
+		}
+
+		input[type=submit], button {
+		    margin-top: 20px;
+		    font-size: 26px;
+		    padding: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<form id="demoForm">
+		<fieldset>
+			<legend>用户登录</legend>
+			<p id="info"></p>
+			<p id="info2" style="display: none;">输入错误</p>
+			<p>
+				<label for="username">用户名</label>
+				<input type="text" id="username" name="username" class="xx">
+			</p>
+
+			<p>
+				<label for="password">密码</label>
+				<input type="password" id="password" name="password" class="xx">
+			</p>
+
+			<p>
+				<label for="confirm-password">确认密码</label>
+				<input type="password" id="confirm-password" name="confirm-password">
+			</p>
+
+			<p>
+				<button id="check">检查</button>
+			</p>
+
+			<p>
+				<input type="submit" value="登陆">
+			</p>
+		</fieldset>
+	</form>
+
+	<script type="text/javascript">
+		var validator
+		$(document).ready(function (){
+
+			//修改默认项，相当于批量添加
+			$.validator.setDefaults(
+			{
+				debug:true
+			})
+
+			validator = $('#demoForm').validate({
+				rules:
+				{
+					username:
+					{
+						required:true,
+
+						//下面的自定义规则
+						test:true,
+						//required表示是否必填写，在里面加入depends可以定义必须填写的条件
+						// required:
+						// {
+						// 	depends:function (element)
+						// 	{
+						// 		return $('#password').is(':filled');
+						// 	}
+						// },
+
+						// minlength:2,
+						//depends 设置条件
+						minlength:
+						{
+							param:2,
+							depends:function (element)
+							{
+								return $('#password').is(':filled')
+							}
+						}
+
+						// maxlength:10,
+						// digits:true
+						// remote:
+						// {
+						// 	url:"remote.json",
+						// 	type:"post",
+						// 	data:
+						// 	{
+						// 		loginTime:function ()
+						// 		{
+						// 			return +new Date;
+						// 		}
+						// 	}
+						// }
+					},
+					password:
+					{
+						required:true,
+						// minlength:2,
+						// maxlength:16
+					},
+					'confirm-password':
+					{
+						equalTo:'#password'
+					}
+				},
+				messages:
+				{
+					username:
+					{
+						required:'必须填写用户名',
+						minlength:'用户名最少为2位',
+						maxlength:'用户名最多为10位',
+						remote:'用户名不存在',
+						url:'请输入url'
+					},
+					password:
+					{
+						required:'必须填写密码',
+						minlength:'密码最少为2位',
+						maxlength:'密码最多为16位'
+					},
+					'confirm-password':
+					{
+						equalTo:'两次输入的密码不一致'
+					}
+				},
+				//表单提交成功后的操作
+				submitHandler:function (form)
+				{
+					console.log($(form).serialize());
+				},
+
+
+				//highlight针对的是input,给未通过验证的元素添加效果
+				highlight:function (element,errorClass,validClass)
+				{
+					$(element).addClass(errorClass).removeClass(validClass);
+					$(element).fadeOut().fadeIn();
+				},
+				unhighlight:function (element,errorClass,validClass)
+				{
+					$(element).addClass(validClass).removeClass(errorClass);
+				},
+
+				//提交后给标签添加class，success针对的是label元素
+				// success:function (label)
+				// {
+				// 	label.addClass('aaaaa');
+				// },
+
+				//可以批量设置错误显示的地方
+				// groups:
+				// {
+				// 	login:'username password confirm-password'
+				// },
+				// errorPlacement:function (error,element)
+				// {
+				// 	error.insertBefore('#info');
+				// },
+
+				//可以单独用
+				//显示或者隐藏信息
+				// errorContainer:'#info2',
+
+				//下面三个一起用
+				//把错误信息统一放到一个容器里面
+				errorLabelContainer:'#info',
+				//使用什么标签标记错误
+				errorElement:'li',
+				//错误标签外面包裹什么
+				wrapper:'ul',
+
+				// 错误的具体信息
+				// showErrors:function (errorMap,errorList)
+				// {
+				// 	console.log(errorMap);
+				// 	console.log(errorList);
+				// 	//系统默认的展示方式
+				// 	this.defaultShowErrors();
+				// },
+
+				//当验证错误的时候，是否获取焦点
+				focusInvalid:true,
+
+				//可以选择不校验某项,默认值是':hidden'意思是不对隐藏的值进行校验
+				// ignore:'#username',
+
+				//表单提交失败后的操作
+				invalidHandler:function (event,validator)
+				{
+					console.log('错误数:'+validator.numberOfInvalids());
+				}
+
+			});
+
+			//自定义规则
+			$.validator.addMethod('test',function (value,element,params)
+			{
+				var test1=/^[0-9]{6}$/;
+
+				// optional为可选项，即只在无输入时返回true,
+				return this.optional(element)||(test1.test(value));
+			},'测试自定义规则');
+
+			//批量添加规则，如下表示给class为xx的项添加minlength的规则
+			$.validator.addClassRules(
+			{
+				xx:
+				{
+					minlength:2
+				}
+			})
+
+			$('#check').click(function (){
+				alert($('#demoForm').valid()?"填写正确":"填写错误");
+			});
+
+		});
+	</script>
+
+</body>
+</html>

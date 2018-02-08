@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+#div2{
+  width: 200px;
+  height: 200px;
+  background:pink;
+  box-shadow: 2px 2px 8px;
+  position: absolute;
+}
+#div1{
+  width: 100px;
+  height: 30px;
+  background: yellow;
+  position: absolute;
+  left: 50px;
+  top: 55px;
+  border: 0px solid black;
+  border-radius: 10px;
+  z-index: 8;
+  color: black;
+  text-align: center;
+  line-height: 30px;
+}
+#ul1{
+  padding: 0;
+  margin: 0;
+    list-style: none;
+    background: rgb(73, 150, 227);
+    color:white;
+    position: absolute;
+    width: 100px;
+    left: 50px;
+    top: 55px;
+    z-index: 9;
+    text-align: center;
+    display: none;
+}
+#ul1 li:hover{
+  background: rgb(9, 72, 135);
+}
+  </style>
+</head>
+<body>
+  <div id="div2">
+    <div id="div1">状态1</div>
+    <ul id="ul1">
+      <li>状态1</li>
+      <li>状态2</li>
+      <li>状态3</li>
+      <li>状态4</li>
+    </ul>
+  </div>
+  <script>
+
+function getByClass(clsName,parent)
+{
+  //如果有父元素，请输入ID
+  var oParent=parent?document.getElementById(parent):document,
+  eles=[],
+  elements=oParent.getElementsByTagName('*');
+
+  for(var i=0;i<elements.length;i++)
+  {
+    if(elements[i].className==clsName)
+    {
+      eles[i]=elements[i];
+    }
+  }
+  return eles;
+};
+
+  var ul1=document.getElementById('ul1');
+  var ulli=ul1.getElementsByTagName('li');
+  var div1=document.getElementById('div1');
+  div1.onclick=function (e)
+  {
+    ul1.style.display='block';
+
+    e=e||window.event;
+    //阻止事件冒泡到document的display事件
+    if(e.stopPropagation)
+    {
+      e.stopPropagation();
+    }
+    else
+    {
+      e.cancelBubble=true;
+    }
+  };
+
+  for(var i=0;i<ulli.length;i++)
+  {
+    ulli[i].onclick=function ()
+    {
+      ul1.style.display='none';
+      div1.innerHTML=this.innerHTML;
+    };
+  }
+
+//   if(ul1.style.display=='block'){
+  document.onclick=function ()
+  {
+    ul1.style.display='none';
+  }
+// }
+  //下面是自由拖拽
+  var div2=document.getElementById('div2');
+  // var div1=document.getElementById('div1');
+  var disX=0;
+  var disY=0;
+
+  div2.onmousedown=function (e)
+  {
+    var e=e||window.event;
+    disX=e.clientX-div2.offsetLeft;
+    disY=e.clientY-div2.offsetTop;
+    document.onmousemove=function (e)
+    {
+      var e=e||window.event
+      var xx=e.clientX-disX;
+      var yy=e.clientY-disY;
+
+      if(xx<0){
+        xx=0;
+      }
+      else if(xx>document.documentElement.clientWidth-div2.offsetWidth)
+      {
+        xx=document.documentElement.clientWidth-div2.offsetWidth;
+      }
+
+      div2.style.left=xx+'px';
+      div2.style.top=yy+'px';
+    };
+
+    document.onmouseup=function (){
+      document.onmousemove = null;
+      document.onmouseup = null;
+    };
+  };
+
+  </script>
+</body>
+</html>

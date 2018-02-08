@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box3{
+			width: 300px;
+			height: 300px;
+			background: yellow;
+		}
+		#box2{
+			width: 150px;
+			height: 150px;
+			background: pink;
+		}
+		#box1{
+			width: 80px;
+			height: 80px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="box3">
+		<div id="box2">
+			<div id="box1">
+				
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var div3=document.getElementById('box3');
+		var div2=document.getElementById('box2');
+		var div1=document.getElementById('box1');
+
+		div3.onclick=function ()
+		{
+			alert('33333333');
+		};
+		div2.onclick=function (ev)
+		{
+			alert('2222');
+			ev.stopPropagation();
+		};
+		div1.onclick=function ()
+		{
+			alert('11');
+		};
+	</script>
+</body>
+</html>

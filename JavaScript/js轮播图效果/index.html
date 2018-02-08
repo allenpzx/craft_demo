@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="move.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <script>
+function getByClass(oParent,sClass)
+{
+  var aEle=oParent.getElementsByTagName('*');
+  var aResult=[];
+  for(var i=0;i<aEle.length;i++)
+  {
+    if(aEle[i].className==sClass)
+    {
+      aResult.push(aEle[i]);
+    }
+  }
+  return aResult;
+};
+
+window.onload=function ()
+{
+  var oDiv=document.getElementById('box');
+  var oPrev=getByClass(oDiv,'prev')[0];
+  var oNext=getByClass(oDiv,'next')[0];
+  var oLeft=getByClass(oDiv,'left')[0];
+  var oRight=getByClass(oDiv,'right')[0];
+  var btnT=99;
+  //左右箭头button
+  oLeft.onmouseover=function ()
+  {
+
+    demo(this,'opacity',100);
+  };
+  oLeft.onmouseout=function ()
+  {
+    demo(this,'opacity',0);
+  };
+  oRight.onmouseover=function ()
+  {
+    demo(this,'opacity',100);
+  };
+  oRight.onmouseout=function ()
+  {
+    demo(this,'opacity',0);
+  };
+
+  oLeft.onclick=function ()
+  {
+      now--;
+      if(now==-1)
+      {
+        now=aLi.length;
+      }
+      tab();
+  };
+  oRight.onclick=function ()
+  {
+    now++;
+    if(now==aLi.length)
+    {
+      now=0;
+    }
+    tab();
+  };
+
+  // var test=getByClass(oDiv,'info')[0];
+  //
+  // test.onmouseover=function ()
+  // {
+  //   demo(this,'height',500);
+  // };
+
+  //图片切换区
+  var oUl=getByClass(oDiv,'ul1')[0];
+  var aLi=oUl.getElementsByTagName('li');
+  var info=getByClass(oDiv,'info')[0];
+  var infoImg=info.getElementsByTagName('img');
+  var newIndex=2;
+  var now=0;
+
+  oUl.style.width=aLi.length*aLi[0].offsetWidth+'px';
+
+  for(var i=0;i<aLi.length;i++)
+  {
+    aLi[i].index=i;
+    aLi[i].onclick=function ()
+    {
+      if(this.index==now)return;
+      now=this.index;
+      tab();
+      // infoImg[now].style.zIndex=newIndex++;
+      //
+      // for(var i=0;i<aLi.length;i++)
+      // {
+      //   demo(aLi[i],'opacity',60);
+      // };
+      // demo(aLi[now],'opacity',100);
+      //
+      // infoImg[now].style.height=0;
+      // demo(infoImg[now],'height',300);
+    };
+    //鼠标移入移出改变透明度
+    aLi[i].onmouseover=function ()
+    {
+      demo(this,'opacity',100)
+    };
+    aLi[i].onmouseout=function ()
+    {
+      if(this.index!=now){
+        demo(this,'opacity',60)
+      }
+    };
+  } //for循环结束点
+
+  function tab()
+  {
+    infoImg[now].style.zIndex=newIndex++;
+
+    for(var i=0;i<aLi.length;i++)
+    {
+      demo(aLi[i],'opacity',60);
+    };
+    demo(aLi[now],'opacity',100);
+
+    infoImg[now].style.height=0;
+    demo(infoImg[now],'height',300);
+
+    if(now==0)
+    {
+      demo(oUl,'left',0);
+    }
+    else if (now==aLi.length-1) {
+      demo(oUl,'left',-(now-2)*aLi[0].offsetWidth);
+    }
+    else
+    {
+      demo(oUl,'left',-(now-1)*aLi[0].offsetWidth);
+    }
+    btnT++;
+  };
+
+};
+  </script>
+</head>
+<body>
+    <div id="box">
+
+        <div class="prev"></div>
+        <div class="next"></div>
+        <a class="left" href="javascript:;"><img src="img/turn.svg" alt=""></a>
+        <a class="right" href="javascript:;"><img src="img/turn.svg" alt=""></a>
+
+        <div class="info">
+          <img id="bimg" src="img/11.jpeg">
+          <img src="img/22.jpg">
+          <img src="img/33.jpg">
+        </div>
+      <ul class="ul1">
+        <li id="simg"><img src="img/11.jpeg" alt=""></li><li><img src="img/22.jpg" alt=""></li><li><img src="img/33.jpg" alt=""></li>
+      </ul>
+
+    </div>
+</body>
+</html>

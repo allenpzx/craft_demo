@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+        body{
+            background: #e8e8e8;
+        }
+    </style>
+</head>
+<body>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+<div id="app">
+    <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="page-header">
+                    <h1>这里是IT666教育</h1>
+                </div>
+            </div>
+    </div> 
+    <div class="row">
+
+        <div class="col-xs-2 col-xs-offset-2">
+            <div class="list-group">
+                <!-- 使用 router-link 组件来导航. -->
+                <!-- 通过传入 `to` 属性指定链接. -->
+                <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+                <router-link class="list-group-item" to="/t1">Go to t1</router-link>
+                <router-link class="list-group-item" to="/t2">Go to t2</router-link>
+                <router-link class="list-group-item" to="/t3">Go to t3</router-link>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="panel">
+                <div class="panel-body">
+                    <router-view></router-view>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
+</div>
+
+
+<template id="test1">
+    <div>
+        <h2>test1的标题</h2>
+        <p>test1的段落</p>
+    </div>
+</template>
+
+<template id="test2">
+    <div>
+        <h2>test2的标题</h2>
+        <p>test2的段落</p>
+    </div>
+</template>
+
+<template id="test3">
+    <div>
+        <h2>test3的标题</h2>
+        <p>test3的段落</p>
+    </div>
+</template>
+
+<script>
+    // 1.创建组件
+    let t1 = Vue.component('test1',{
+        template:"#test1"
+    });
+
+    let t2 = Vue.component('test2',{
+        template:"#test2"
+    });
+
+    let t3 = Vue.component('test3',{
+        template:"#test3"
+    });
+
+    // 2.定义路由routes
+    const routes = [
+        { path: '/t1', component: t1 },
+        { path: '/t2', component: t2 },
+        { path: '/t3', component: t3 },
+        // 配置根路游 默认进入的主页
+        {path: '/', redirect: '/t1'}
+    ];
+
+    // 3.创建路由实例
+    const router = new VueRouter({
+        routes:routes
+    })
+
+    // 4.创建Vue实例并挂载
+    const app = new Vue({
+        router
+    }).$mount('#app');
+</script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>

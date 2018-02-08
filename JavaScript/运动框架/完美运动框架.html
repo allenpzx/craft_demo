@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="sportFrame.js"></script>
+  <style>
+  #box{width: 300px;height: 300px;position:relative; margin: 40px auto;background: rgb(255, 43, 43);overflow: hidden;}
+
+#box ol{list-style: none;position:absolute; z-index: 2;bottom: 0;right:20px;}
+#box ol li{display: inline-block;width: 20px;
+height: 20px; border: 2px solid white;color:white; text-align: center;line-height: 20px;background: rgb(255, 122, 0)}
+#box ol li a{text-decoration: none;color:white;}
+
+#box ul{list-style: none;position:absolute;left: 0;margin: 0;padding: 0; z-index: 1;top:0px;}
+#box ul li{display: inline-block;}
+#box ul li img{width: 300px;height: 300px;}
+
+#box .on{border: 0px;background: blue;}
+  </style>
+  <script>
+  window.onload=function ()
+  {
+    var Ol=document.getElementById('ol1');
+    var Ul=document.getElementById('ul1');
+    var Oli=Ol.getElementsByTagName('li');
+    var Uli=Ul.getElementsByTagName('li');
+    var now=0;
+    for(var i=0;i<Oli.length;i++)
+    {
+      Oli[i].index=i;
+      Oli[i].onclick=function ()
+      {
+        now=this.index;
+        // for(var i=0;i<Oli.length;i++)
+        // {
+        //   Oli[i].className='';
+        // }
+        // Oli[now].className='on';
+        // // Ul.style.top=-300*this.index+'px';
+        // demo(Ul,{top:-300*now});
+        tab();
+      };
+    }
+      function tab()
+      {
+        for(var i=0;i<Oli.length;i++)
+        {
+          Oli[i].className='';
+        }
+        Oli[now].className='on';
+        // Ul.style.top=-300*this.index+'px';
+        demo(Ul,{top:-300*now});
+      };
+      //自动播放函数
+      function next()
+      {
+        now++;
+        if(now==Oli.length)
+        {
+          now=0;
+        }
+        tab();
+      };
+      //自动播放
+      var timer=setInterval(next,2000);
+      //鼠标悬停
+      Ul.onmouseover=function ()
+      {
+        clearInterval(timer);
+      };
+      Ul.onmouseout=function ()
+      {
+        setInterval(next,2000);
+      };
+  };
+  </script>
+</head>
+<body>
+<div id="box">
+  <ol id="ol1">
+    <li class="on"><a href="javascript:;">1</a></li>
+    <li><a href="javascript:;">2</a></li>
+    <li><a href="javascript:;">3</a></li>
+    <li><a href="javascript:;">4</a></li>
+  </ol>
+  <ul id="ul1">
+    <li><a href=""><img src="2.jpg" alt="1"></a></li>
+    <li><a href=""><img src="http://ww4.sinaimg.cn/large/0060lm7Tly1fkujbeerfij30b40b40w9.jpg" alt="2"></a></li>
+    <li><a href="#"><img src="http://ww4.sinaimg.cn/large/0060lm7Tly1fkuiz0hw3wj30b40b4my8.jpg" alt="3"></a></li>
+    <li><a href=""><img src="http://ww4.sinaimg.cn/large/0060lm7Tly1fkujbeerfij30b40b40w9.jpg" alt="2"></a></li>
+  </ul>
+</div>
+</body>
+</html>

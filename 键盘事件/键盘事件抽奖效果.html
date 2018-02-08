@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+*{margin: 0;padding: 0;}
+.title{
+  width: 400px;
+  height: 70px;
+  margin: 30px auto;
+  text-align: center;
+  font-size: 24px;
+  line-height: 70px;
+  font-weight: bold;
+  /*background: #ccc;*/
+  color: rgb(233, 117, 24);
+}
+.btns{
+  width: 184px;
+  height: 30px;
+  margin: 0 auto;
+  /*background: pink;*/
+}
+.btns span{
+  display: block;
+  float: left;
+  width: 80px;
+  height: 25px;
+  line-height: 25px;
+  background: #036;
+  color: white;
+  border: 1px solid #eee;
+  border-radius: 7px;
+  text-align: center;
+  font-size: 14px;
+  font-family: '苹方';
+  margin-right: 10px;
+  cursor: pointer;
+}
+  </style>
+  <script>
+      var arr=['666','iphone','Mac','MacBook','MacBook Pro','777','iWatch'];
+      var timer=null;
+
+  window.onload=function ()
+  {
+    var play=document.getElementById('play');
+    var stop=document.getElementById('stop');
+      play.onclick=demo;
+      stop.onclick=stopFn;
+
+      //健盘事件
+      var flag=0;
+      document.onkeyup=function (e)
+      {
+        e=e||window.event;
+        if(e.keyCode==13)
+        {
+          if(flag==0)
+          {
+            demo();
+            flag++;
+          }
+          else
+          {
+            stopFn();
+            flag--;
+          }
+        }
+      };
+
+  };
+  function demo()
+  {
+    var title=document.getElementById('title');
+    clearInterval(timer);
+    timer=setInterval(function ()
+    {
+      var random=Math.floor(Math.random()*arr.length);
+      title.innerHTML=arr[random];
+    },100);
+    play.style.background='#999';
+  };
+  function stopFn()
+  {
+    clearInterval(timer);
+    play.style.background='#036';
+  };
+  </script>
+  <!-- <script src="cj.js"></script> -->
+</head>
+<body>
+
+  <div id="title" class="title">开始抽奖啦</div>
+  <div class="btns">
+    <span id="play" onclick="demo()">开始</span>
+    <span id="stop">停止</span>
+  </div>
+
+</body>
+</html>

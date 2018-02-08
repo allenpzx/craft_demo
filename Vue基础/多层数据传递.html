@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <!--<test1 tt1="666" tt2="777"></test1>-->
+
+    <!--多层数据传递一定要用动态绑定 :-->
+    <parent :m="666" :mm="222" :mmm='333' :mmmm="4444"></parent>
+
+</div>
+
+<template id="mybtn">
+    <div>
+        <h1>{{tt1}}</h1>
+        <p>{{tt2}}</p>
+    </div>
+</template>
+
+<template id="btn2">
+    <div>
+        <h2>{{tt3}}</h2>
+        <h3>{{tt4}}</h3>
+    </div>
+</template>
+
+<tmplate id="box">
+    <div>
+        <child1 :tt1="m" :tt2="mm"></child1>
+        <child2 :tt3="mmm" :tt4="mmmm"></child2>
+    </div>
+</tmplate>
+
+<script src="vue.js"></script>
+<script>
+
+    let ch1 = Vue.component('test1',{
+        template:"#mybtn",
+        props:["tt1","tt2"],
+    });
+
+    let ch2 = Vue.component('test2',{
+        template:"#btn2",
+        props:["tt3","tt4"],
+    });
+
+    Vue.component("parent",{
+        template:"#box",
+        props:["m","mm","mmm","mmmm"],
+        components:{
+            "child1":ch1,
+            "child2":ch2
+        }
+    });
+
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            data1:111,
+            data2:222,
+            data3:333,
+            data4:444
+        }
+    });
+</script>
+</body>
+</html>

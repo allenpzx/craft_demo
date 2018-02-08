@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add/dele system</title>
+    <script src="vue.js"></script>
+    <style>
+        #app{
+            margin: 50px auto;
+            width: 600px;
+        }
+        fieldset{
+            border: 1px solid orangered;
+            margin-bottom: 20px;
+        }
+        fieldset input{
+            width: 200px;
+            height: 30px;
+            margin: 10px 0;
+        }
+        table{
+            width: 600px;
+            border: 2px solid orangered;
+            text-align: center;
+        }
+        thead{
+            background-color: orangered;
+        }
+        .ale{
+            color: pink;
+            font-size: 14px;
+            margin-top: -5px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <fieldset id="form1">
+        <legend>学生录入系统</legend>
+        <label for="name">姓名:</label>
+        <input type="text" id="name" placeholder="请输入姓名" v-model="newStudent.name">
+        <br>
+        <label for="gender" id="genderL">性别</label>
+        <select name="gender" id="gender" v-model="newStudent.gender">
+            <option value="male">男</option>
+            <option value="female">女</option>
+        </select>
+        <br>
+        <label for="age">年龄:</label>
+        <input type="text" id="age" placeholder="请输入年龄" v-model="newStudent.age">
+        <br>
+        <label for="phone" id="phoneL">手机:</label>
+        <input type="text" id="phone" placeholder="请输入手机号" v-model="newStudent.phone">
+        <br>
+        <button id="btn" @click="createNew()">创建新用户</button>
+    </fieldset>
+
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>年龄</td>
+                <td>手机</td>
+                <td>删除</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(p,index) in person">
+                <td>{{p.name}}</td>
+                <td>{{p.gender}}</td>
+                <td>{{p.age}}</td>
+                <td>{{p.phone}}</td>
+                <td>
+                    <button @click="deleStu(index)">删除</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            person:[
+                {name:"allen1",gender:"male",age:"24",phone:"1234567"},
+                {name:"allen2",gender:"male",age:"25",phone:"2345678"},
+                {name:"allen3",gender:"male",age:"26",phone:"3456789"},
+                {name:"allen4",gender:"male",age:"27",phone:"4567890"},
+                {name:"allen5",gender:"male",age:"28",phone:"1234567"},
+                ],
+            newStudent:{name:"",gender:"male",age:"",phone:""}
+        },
+        methods:{
+            createNew(){
+
+                // 不能为空
+                if(this.newStudent.name==="")
+                {
+                    let log = document.createElement("p");
+                    log.setAttribute("class","ale");
+                    var logCtn = document.createTextNode("姓名不能为空");
+                    log.appendChild(logCtn);
+                    let old=document.getElementById("genderL");
+                    document.getElementById("form1").insertBefore(log,old);
+                    return;
+                }
+                if(this.newStudent.age<=0){
+                    let log2 = document.createElement("p");
+                    log2.setAttribute("class","ale");
+                    var logCtn2 = document.createTextNode("请输入正确的年龄");
+                    log2.appendChild(logCtn2);
+                    let old2=document.getElementById("phoneL");
+                    document.getElementById("form1").insertBefore(log2,old2);
+                    return;
+                }
+
+                if(this.newStudent.phone==="")
+                {
+                    let log3 = document.createElement("p");
+                    log3.setAttribute("class","ale");
+                    var logCtn3 = document.createTextNode("请输入手机号码");
+                    log3.appendChild(logCtn3);
+                    let old3=document.getElementById("btn");
+                    document.getElementById("form1").insertBefore(log3,old3);
+                    return;
+                }
+
+                // 添加新数据
+                this.person.unshift(this.newStudent);
+
+                //清空数据栏
+                this.newStudent={name:"",gender:"male",age:"",phone:""};
+            },
+            // 删除索引
+            deleStu(index)
+            {
+                this.person.splice(index,1);
+            }
+        }
+    })
+</script>
+</body>
+</html>

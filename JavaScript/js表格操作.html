@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    window.onload=function ()
+    {
+        var oTab=document.getElementById('table1');
+        var oldColor='';
+        var addbtn=document.getElementById('addbtn');
+        var name=document.getElementById('name');
+        var age=document.getElementById('age');
+        var id=oTab.tBodies[0].rows.length+1;
+        var sou=document.getElementById('search');
+        var btn2=document.getElementById('btn2');
+        var sortup=document.getElementById('rise');
+        var sortdown=document.getElementById('fall');
+        var arr=[];
+
+        // alert(
+        // oTab.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[1].getElementsByTagName('td')[1].innerHTML);
+
+        sortup.onclick=function ()
+        {
+            // var nianling=oTab.tBodies[0].rows[i].cells[2].innerHTML;
+            for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+            {
+                arr[i]=oTab.tBodies[0].rows[i];
+            };
+
+            arr.sort(function (a,b){
+                var a1=parseInt(a.cells[2].innerHTML);
+                var b1=parseInt(b.cells[2].innerHTML);
+                return a1-b1;
+            });
+
+            for(var i=0;i<arr.length;i++)
+            {
+                oTab.tBodies[0].appendChild(arr[i]);
+            };
+
+        };
+
+        btn2.onclick=function ()
+        {
+            for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+            {
+                var content=oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+                var sousuo=sou.value.toLowerCase();
+                var arr=sousuo.split(' ');
+                // oTab.tBodies[0].rows[i].style.background='';
+                oTab.tBodies[0].rows[i].style.display='none';
+
+                for(var j=0;j<arr.length;j++)
+                {
+                    if(content.search(arr[j])!=-1)
+                    {
+                    // oTab.tBodies[0].rows[i].style.background='yellow';
+                    oTab.tBodies[0].rows[i].style.display='block';
+                    }
+                    
+                };
+
+                
+                // else
+                // {
+                //     oTab.tBodies[0].rows[i].style.background='';
+                // }
+            };
+
+        };
+
+        addbtn.onclick=function ()
+        {
+            var newTr=document.createElement('tr');
+
+            var newTd=document.createElement('td');
+            newTd.innerHTML=id++;
+            newTr.appendChild(newTd);
+
+            var newTd=document.createElement('td');
+            newTd.innerHTML=name.value;
+            newTr.appendChild(newTd);
+
+            var newTd=document.createElement('td');
+            newTd.innerHTML=age.value;
+            newTr.appendChild(newTd);
+
+            var newTd=document.createElement('td');
+            newTd.innerHTML='<a href="javascript:;">删除</a>';
+            newTr.appendChild(newTd);
+
+            newTd.getElementsByTagName('a')[0].onclick=function ()
+            {
+                oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+            };
+
+            oTab.tBodies[0].appendChild(newTr);
+        };
+
+        for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+        {
+
+            oTab.tBodies[0].rows[i].onmouseover=function ()
+            {
+                oldColor=this.style.background;
+                this.style.background='green';
+            };
+
+            oTab.tBodies[0].rows[i].onmouseout=function ()
+            {
+                this.style.background=oldColor;
+            };
+
+            if(i%2)
+            {
+                oTab.tBodies[0].rows[i].style.background= '#ccc';
+            }
+            else
+            {
+                oTab.tBodies[0].rows[i].style.background= '';
+            };
+        };
+    };
+    </script>   
+</head>
+
+<body>
+    姓名:<input id="name" type="text" name="" value="">年龄:<input id="age" type="text"><input id="addbtn" type="button" value="增加"><br>
+    <input id="search" type="text"> <input id="btn2" type="button" value="搜索姓名">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="rise" type="button" value="升序"> <input id="fall" type="button" value="降序">
+    <table id='table1' border="1" width='500px'>
+        <thead>
+            <td>Id</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>操作</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>allen</td>
+                <td>23</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>allen666</td>
+                <td>24</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>彭先生</td>
+                <td>25</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>彭产品经理</td>
+                <td>26</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>彭总监</td>
+                <td>27</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>allen</td>
+                <td>28</td>
+                <td>操作</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>allen</td>
+                <td>22</td>
+                <td>操作</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

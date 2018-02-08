@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  input{
+    width: 40px;
+    height: 20px;
+  }
+  div{
+    width: 150px;
+    height: 100px;
+    background: pink;
+    display:none;
+  }
+  </style>
+  <script>
+  window.onload=function ()
+  {
+    var btn=document.getElementsByTagName('input');
+    var div=document.getElementsByTagName('div');
+    for(var i=0;i<btn.length;i++)
+    {
+      btn[i].index=i;
+      btn[i].onmouseover=function ()
+      {
+        for(var a=0;a<div.length;a++)
+        {
+          div[a].style.display='none';
+        }
+        this.style.background='red';
+        div[this.index].style.display='block';
+      };
+      btn[i].onmouseout=function ()
+      {
+        this.style.background='';
+      };
+    }
+  };
+
+  </script>
+</head>
+<body>
+    <input type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+    <div style="display:block;">11</div>
+    <div>22222</div>
+    <div>333333333</div>
+</body>
+</html>

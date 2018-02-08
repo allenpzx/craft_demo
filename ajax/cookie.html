@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>cookie</title>
+  <script src="Cookie.js"></script>
+  <script>
+    // var res=confirm('确定吗？');
+    // alert(res);
+    // var red=prompt('试试啊','666?');
+
+    //cookie的 = 号是添加 而不会覆盖
+
+    //设置过期时间
+    // var oDate=new Date();
+    // oDate.setDate(oDate.getDate()+14);
+
+    // document.cookie='user=allen;';
+    // document.cookie='password=admin';
+
+    setCookie('user', 'allen', 10);
+    setCookie('pass', '123', 10);
+    // removeCookie('pass');
+    // removeCookie('user');
+    removeCookie('pass');
+    removeCookie('user');
+    alert(document.cookie);
+    // alert(getCookie('sex'));
+  </script>
+</head>
+<body>
+
+</body>
+</html>

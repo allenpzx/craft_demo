@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function demo()
+        {
+            // var move=document.getElementById('btn');
+            var timer=null;
+            var speed=2;
+            // var kuai=document.getElementById('div1');
+
+            clearInterval(timer);
+            timer=setInterval(function (){
+
+                var kuai=document.getElementById('div1');
+
+                if(kuai.offsetLeft>=900)
+                {
+                    clearInterval(timer);
+                }
+                else{
+                    kuai.style.left=kuai.offsetLeft+speed+'px';
+                }
+            },30);
+        };
+    // var move=document.getElementById('btn');
+    // var kuai=document.getElementById('div1');
+        // move.onclick=function ()
+        // {
+        //     setInterval(function (){
+        //         kuai.style.left=kuai.offsetLeft+10+'px';
+        //     },30)
+            
+        // };
+    </script>
+    <style>
+    #div1{
+        width: 200px;
+        height: 200px;
+        background: red;
+        position: absolute;
+        left: 0;
+        top: 50px;
+    }
+    </style>
+</head>
+<body>
+    <input id="btn" type="button" value="移动" onclick="demo()">
+    <div id="div1">
+
+    </div>
+</body>
+</html>

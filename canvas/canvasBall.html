@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 150px;
+        }
+        #canvas{
+            box-shadow:0 0 10px #000;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas">
+    <p>当前浏览器不支持Canvas！</p>
+</canvas>
+
+<script>
+
+    // 1.创建画布
+    let canvas = document.getElementById('canvas');
+    let ctx = canvas.getContext('2d');
+    canvas.width=1000;
+    canvas.height=600;
+    canvas.style.backgroundColor="#000";
+
+    // 2.创建小球
+    class Ball
+    {
+       constructor(x,y,color)
+       {
+            this.x=x;
+            this.y=y;
+            this.color=color;
+            this.r=40;
+       };
+       render()
+       {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+            ctx.fillStyle=this.color;
+            ctx.fill();
+            ctx.restore();
+       };
+    }
+
+    // 3.刷新小球
+    class MoveBall extends Ball
+    {
+        constructor(x, y, color)
+        {
+            super(x, y, color);
+            this.dx=random(-5,5);
+            this.dy=random(-5,5);
+            this.dr=random(1,3);
+        }
+
+        update()
+        {
+            this.x+=this.dx;
+            this.y+=this.dy;
+            this.r-=this.dr;
+            if(this.r<0){
+                this.r=0;
+            }
+        }
+    }
+
+    // 随机数
+    function random(min,max) {
+        // let num = Math.round(Math.random*(max-min)+min);
+        // return num;
+
+        let num=Math.round(Math.random()*(max-min)+min);
+        return num;
+    }
+
+    // 4.实例化小球
+    let ballArr=[];
+    let colorArr=['red','yellow','blue','pink','purple','orange'];
+
+    canvas.addEventListener('mousemove',function (ev){
+        // let ev = ev|| event;
+        ballArr.push(new MoveBall(ev.offsetX,ev.offsetY,colorArr[random(0,colorArr.length-1)]))
+
+        console.log(colorArr);
+    });
+
+    // 6.开启定时器
+    setInterval(function (){
+
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+        for(let i=0;i<ballArr.length;i++)
+        {
+            ballArr[i].render();
+            ballArr[i].update();
+        }
+    },50)
+    // let ball = new Ball(50,50,"red");
+    // ball.render();
+</script>
+</body>
+</html>

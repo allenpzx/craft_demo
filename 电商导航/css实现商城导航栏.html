@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+body{
+  margin: 0;
+  padding: 0;
+  font-size: 10pt;
+  /*behavior:url();*/
+}
+.topMenu{
+  display: block;
+  width: 200px;
+  border:2px solid #e4393c;
+  margin: 0;
+  padding: 0;
+}
+.topTittle{
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+  font-size: 11pt;
+  font-weight: bold;
+  color: white;
+  background: #e4393c;
+  padding-left: 20px;
+}
+.topMenu li{
+  height: 30px;
+  line-height: 30px;
+  font-size: 11pt
+  list-style-type:none;
+  text-align: left;
+  padding-left: 20px;
+  z-index: 3;
+  background: #f8f8f8;
+  background-image:url(http://img.mukewang.com/5411027300014f0200220030.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  /*background-size:30px 30px;*/
+}
+.topMenu li:hover{
+  background-image: none;
+  border:1px solid #DDD;
+  border-right: 0px;
+  box-shadow: 0 0 8px #DDD;
+  -moz-box-shadow:0 0 8px #DDD;
+  -webkit-box-shadow:0 0 8px #DDD;
+  height: 30px;
+  background: white;
+}
+.topMenu li:hover .topInfo{
+  display: block;
+}
+/*小白块遮盖住二级菜单的边*/
+.topMenu li:hover span{
+  float: right;
+  background: white;
+  height: 30px;
+  width: 30px;
+  z-index: 5;
+  position: relative;
+}
+
+.topMenu li a{
+  text-decoration: none;
+  color: #313131;
+}
+.topMenu li a:hover{
+  text-decoration: underline;
+  font-weight: bold;
+  color: #e4393c;
+}
+.topInfo{
+  display: none;
+  width: 715px;
+  left: 200px;
+  top: 40px;
+  border: 1px solid #DDD;
+  box-shadow: 0 0 8px #DDD;
+  -moz-box-shadow:0 0 8px #DDD;
+  -webkit-box-shadow:0 0 8px #DDD;
+  position: absolute;
+  z-index: 4;
+  background:white;
+}
+.topInfo .topInfo_left{
+  /*background: gray;*/
+  float: left;
+  width: 490px;
+  margin: 5px;
+}
+.topInfo .topInfo_left dl{
+  display: block;
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 6px;
+  overflow: hidden;
+}
+.topInfo .topInfo_left dl dt{
+  display: block;
+  float: left;
+  width: 60px;
+  height: 22px;
+  line-height: 22px;
+  text-align: right;
+  padding-right: 6px;
+}
+.topInfo .topInfo_left dl dt a{
+  color: #e4393c;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 10pt;
+}
+.topInfo .topInfo_left dl dd{
+  display: block;
+  overflow: hidden;
+}
+.topInfo .topInfo_left dl dd a{
+  display: block;
+  float: left;
+  border-left: 1px solid #CCC;
+  color:#737373;
+  font-size:9pt;
+  padding: 0 8px;
+  height: 14px;
+  line-height: 14px;
+  margin: 4px 0;
+}
+
+.topInfo .topInfo_right{
+  float: left;
+  background:#DDD;
+  margin: 5px;
+  width: 200px;
+}
+.topInfo .topInfo_right dl dt{
+  color: #e4393c;
+  font-weight: bold;
+  font-size: 10pt;
+}
+.topInfo .topInfo_right dl dd{
+  margin: 3px 0;
+  overflow: hidden;
+}
+.topInfo .topInfo_right dl dd img{
+  margin: 10px 0;
+  float: left;
+  padding-left: 20px;
+}
+.topInfo .topInfo_right dl dd a{
+  font-size: 9pt;
+  color:#737373;
+  line-height: 22px;
+}
+.topInfo .topInfo_right dl dd a:hover{
+  font-weight: normal;
+  color:#737373;
+
+}
+
+  </style>
+</head>
+<body>
+  <ul class="topMenu">
+    <div class="topTittle">全部商品分类</div>
+    <li>
+      <a href="#">图书、音响、数字产品</a><span></span>
+      <div class="topInfo">
+         <div class="topInfo_left">
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+         </div>
+         <div class="topInfo_right">
+             <dl>
+               <dd><a href="#"><img src="https://img10.360buyimg.com/babel/s390x130_jfs/t12412/59/351241872/31595/113795bf/5a094a1dNcb98e14e.jpg!q90" alt=""></a></dd>
+               <dd><a href="#"><img src="https://img11.360buyimg.com/babel/s390x130_jfs/t12520/150/110636696/40645/35bf4537/5a03ce83N176a3cea.jpg!q90" alt=""></a></dd>
+             </dl>
+             <dl>
+               <dt>推荐品牌</dt>
+               <dd>
+                 <a href="#">美的官方旗舰店</a>
+               </dd>
+               <dd>
+                 <a href="#">美的官方旗舰店</a>
+               </dd>
+               <dd>
+                 <a href="#">美的官方旗舰店</a>
+               </dd>
+               <dd>
+                 <a href="#">美的官方旗舰店</a>
+               </dd>
+
+             </dl>
+         </div>
+       </div>
+    </li>
+    <li>
+      <a href="#">图书、音响、数字产品</a><span></span>
+      <div class="topInfo">
+         <div class="topInfo_left">
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+         </div>
+         <div class="topInfo_right">
+             <dl>
+               <dd><a href="#"><img src="https://img10.360buyimg.com/babel/s390x130_jfs/t12412/59/351241872/31595/113795bf/5a094a1dNcb98e14e.jpg!q90" alt=""></a></dd>
+               <dd><a href="#"><img src="https://img11.360buyimg.com/babel/s390x130_jfs/t12520/150/110636696/40645/35bf4537/5a03ce83N176a3cea.jpg!q90" alt=""></a></dd>
+             </dl>
+             <dl>
+               <dt>推荐品牌</dt>
+               <dd>
+                 <a href="#">美的官方旗舰店</a>
+               </dd>
+               <dd>
+                 <a href="#">美的官方旗舰店</a>
+               </dd>
+               <dd>
+                 <a href="#">美的官方旗舰店</a>
+               </dd>
+               <dd>
+                 <a href="#">美的官方旗舰店</a>
+               </dd>
+
+             </dl>
+         </div>
+       </div>
+    </li>
+    <li>
+      <a href="#">图书、音响、数字产品</a><span></span>
+      <div class="topInfo">
+         <div class="topInfo_left">
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><a href="#">电子书</a></dt>
+                <dd>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                  <a href="#">测试</a>
+                  <a href="#">数学</a>
+                  <a href="#">计算机</a>
+                </dd>
+              </dl>
+         </div>
+         <div class="topInfo_right">
+             <dl>
+               <dd><a href="#"><img src="https://img10.360buyimg.com/babel/s390x130_jfs/t12412/59/351241872/31595/113795bf/5a094a1dNcb98e14e.jpg!q90" alt=""></a></dd>
+               <dd><a href="#"><img src="https://img11.360buyimg.com/babel/s390x130_jfs/t12520/150/110636696/40645/35bf4537/5a03ce83N176a3cea.jpg!q90" alt=""></a></dd>
+             </dl>
+             <dl>
+               <dt>推荐品牌</dt>
+               <dd>
+                 <a href="#">美的官方旗舰店</a>
+               </dd>
+               <dd>
+                 <a href="#">美的官方旗舰店</a>
+               </dd>
+               <dd>
+                 <a href="#">美的官方旗舰店</a>
+               </dd>
+               <dd>
+                 <a href="#">美的官方旗舰店</a>
+               </dd>
+
+             </dl>
+         </div>
+       </div>
+    </li>
+    <li><a href="#">图书、音响、数字产品</a></li>
+    <li><a href="#">图书、音响、数字产品</a></li>
+    <li><a href="#">图书、音响、数字产品</a></li>
+    <li><a href="#">图书、音响、数字产品</a></li>
+    <li><a href="#">图书、音响、数字产品</a></li>
+    <li><a href="#">图书、音响、数字产品</a></li>
+  </ul>
+</body>
+</html>

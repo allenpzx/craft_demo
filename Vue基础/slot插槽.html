@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot插槽</title>
+</head>
+<body>
+
+<div id="app">
+
+<test>
+    <p>666</p>
+    <p>777</p>
+</test>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <test2>
+        <div slot="num">123?</div>
+        <div slot="str">str?</div>
+        <div slot="mul">123str?</div>
+        <input type="color" slot="tet">
+    </test2>
+
+</div>
+
+<script src="vue.js"></script>
+<script>
+
+    // 实名插槽
+    Vue.component('test2',{
+       template:`
+       <div id="main">
+            <slot name="num">这里是 数字 插槽</slot>
+            <slot name="str">这里是 字符串 插槽</slot>
+            <slot name="mul">这里是 组合 插槽</slot>
+            <slot name="tet">tet</slot>
+        </div>
+       `
+    });
+
+
+    // anonymous slot 匿名插槽
+    Vue.component('test',{
+       template:`
+         <div id="panel">
+            <h2 class="panel-header">插槽的头部</h2>
+            <slot>如果不传入，则显示这段内容</slot>
+            <footer>插槽的尾部</footer>
+         </div>
+       `
+    });
+
+    new Vue({
+        el:'#app'
+    });
+</script>
+</body>
+</html>

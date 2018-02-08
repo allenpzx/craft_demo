@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>btn1</button>
+	<button>btn2</button>
+	<button>btn3</button>
+	<button>btn4</button>
+	<button>btn5</button>
+
+	<script type="text/javascript">
+		// var btns=document.querySelectorAll("button");
+		// for(var i=0;i<btns.length;i++)
+		// {
+		// 	(function (i){
+		// 		btns[i].onclick=function ()
+		// 		{
+		// 			alert("点击了第"+i+"个按钮");
+		// 		};
+		// 	})(i);
+		// }
+
+		let btns=document.querySelectorAll("button");
+		for(let i=0;i<btns.length;i++)
+		{
+				btns[i].onclick=function ()
+				{
+					alert("点击了第"+i+"个按钮");
+				};
+		}
+
+		let jsonData = {
+		  id: 42,
+		  status: "OK",
+		  data: [867, 5309]
+		};
+
+		let { id, data: number,status} = jsonData;
+
+		// console.log(id, status, number);
+
+		var kvArray = [{ke: 1, value: 10}, 
+		               {ke: 2, value: 20}, 
+		               {ke: 3, value: 30}];
+
+		var reformattedArray = kvArray.map(function(obj) { 
+		   var rObj = {};
+		   rObj[obj.ke] = obj.value;
+		   return rObj;
+		});
+
+		console.log(reformattedArray);
+
+	</script>
+</body>
+</html>

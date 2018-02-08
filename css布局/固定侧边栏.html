@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+#div1{
+  width: 100px;
+  height: 100px;
+  background: yellow;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+body{
+  background: #ccc;
+  height: 3000px;
+}
+  </style>
+  <script>
+    // alert(window.navigator.userAgent);
+    // alert(window.location);
+    window.onscroll=window.onresize=function ()
+    {
+      var oDiv=document.getElementById('div1');
+      var scrollT=document.documentElement.scrollTop||document.body.scrollTop;
+      var disY=document.documentElement.clientHeight-oDiv.offsetHeight;
+      oDiv.style.top=scrollT+disY+'px';
+    };
+  </script>
+</head>
+<body>
+  <div id="div1"></div>
+</body>
+</html>

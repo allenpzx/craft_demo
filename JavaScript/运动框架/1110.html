@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function foo(){};
+		foo.prototype.z=3;
+
+		var obj=new foo();
+		obj.y=2;
+		obj.x=1;
+
+		// console.log(obj.x+'\n'+obj.y+'\n'+obj.z);
+		console.log(typeof obj.toString);
+		// console.log('z' in obj);
+		// console.log(obj.hasOwnProperty('z'));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>callback</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div class="div1"></div>
+<script>
+    var def=$.Deferred();
+    $(".div1").on("click",function (){
+        $(".div1").animate({
+            width: "500px",
+            height: "200px",
+            color: "yellow"
+        },5000,function (){
+           return def.reject();
+        })
+
+    });
+
+    def.then(function (){
+        alert("then 生效");
+    },function (){
+        alert("reject 测试成功");
+    })
+
+    var wait = function(dtd){
+
+        var dtd = $.Deferred(); //在函数内部，新建一个Deferred对象
+
+        var tasks = function(){
+
+            alert("执行完毕！");
+
+            dtd.resolve(); // 改变Deferred对象的执行状态
+
+        };
+
+        setTimeout(tasks,5000);
+
+        return dtd.promise(); // 返回promise对象
+
+    };
+
+    $.when(wait())
+
+        .done(function(){ alert("哈哈，成功了！"); })
+
+        .fail(function(){ alert("出错啦！"); });
+
+
+
+
+</script>
+</body>
+</html>

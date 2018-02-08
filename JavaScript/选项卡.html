@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      *
+      {
+        margin: 0;padding: 0;
+      }
+      #box
+      {
+        width: 210px;
+        height: 240px;
+      }
+      #box div
+      {
+        width: 200px;
+        height: 200px;
+        background: #ccc;
+        display:none;
+      }
+      #box .on
+      {
+        display: block;
+        background: pink;
+        width: 210px;
+        height: 210px;
+      }
+      #box ul li
+      {
+        display: inline-block;
+        width: 70px;
+        height: 30px;
+        background: #ccc;
+        color:black;
+        line-height: 30px;
+        text-align: center;
+      }
+      #box .ms
+      {
+        background: orange;
+        color: white;
+      }
+
+  </style>
+  <script>
+    // var aBox=document.getElementById('box');
+    // var oDiv=aBox.getElementsByTagName('div');
+    // var oBtn=aBox.getElementsByTagName('input');
+    window.onload=function ()
+    {
+      var aBox=document.getElementById('box');
+      var oDiv=aBox.getElementsByTagName('div');
+      var oBtn=aBox.getElementsByTagName('li');
+
+      for(var i=0;i<oBtn.length;i++)
+      {
+        oBtn[i].index=i
+        oBtn[i].onmouseover=function ()
+        {
+
+          for(var x=0;x<oDiv.length;x++)
+          {
+            oDiv[x].className=" ";
+            oBtn[x].className=" ";
+          };
+          oDiv[this.index].className="on"
+          oBtn[this.index].className="ms"
+        };
+
+      };
+
+    };
+  </script>
+</head>
+<body>
+
+  <div id="box">
+    <div id="div1" class="on">1111111111111111111</div>
+    <div id="div2">222222222222222222</div>
+    <div id="div3">333333333333333</div>
+    <ul>
+      <li class="ms">Tab1</li><li>Tab2</li><li>Tab3</li>
+    </ul>
+  </div>
+
+</body>
+</html>

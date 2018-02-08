@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="ptime"></p>
+
+  <script>
+    // function demo() {
+    //   // window.open("666","windowname666","height=280,width=200,top=100,left=100");
+    //   window.close();
+    // }
+
+    var st = setInterval(function() {
+      tttm();
+    },1000);
+
+    function tttm() {
+      var d = new Date();
+      var t = d.toLocaleTimeString();//toLocaleTimeString() 方法可根据本地时间把 Date 对象的时间部分转换为字符串，并返回结果。例:下午8:59:57
+      document.getElementById('ptime').innerHTML = t;
+    }
+  </script>
+
+	</body>
+</html>

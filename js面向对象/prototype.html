@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		
+		var arr1=new Array(1,2,3,4,5);
+		var arr2=new Array(1,2,3);
+		//每个（Array）都有（.sun），作用类似于class
+		Array.prototype.sun=function ()
+		{
+			var result=0;
+			for(var i=0;i<this.length;i++)
+			{
+				result+=this[i];
+			}
+			return result;
+		};
+		alert(arr1.sun());
+		alert(arr2.sun());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

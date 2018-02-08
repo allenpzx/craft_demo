@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+     #parent{
+       width: 600px;
+       height: 20px;
+       background: #ccc;
+       position: relative;
+       margin: 10px auto;
+     }
+     #div1{
+       width: 20px;
+       height: 20px;
+       background: red;
+       position: absolute;
+       left: 0;
+       top: 0;
+     }
+     #div2{
+       width: 0;
+       height: 0;
+       background: blue;
+       filter: alpha(opacity:0);
+       opacity:0;
+     }
+  </style>
+  <script>
+  window.onload = function() {
+
+    var oDiv = document.getElementById('div1');
+    var oDiv2= document.getElementById('div2');
+    var oParent=document.getElementById('parent');
+    var disX = 0;
+
+    oDiv.onmousedown = function(ev) {
+      var oEvent = ev || event;
+      disX = oEvent.clientX - oDiv.offsetLeft;
+      // disY = oEvent.clientY - oDiv.offsetTop;
+
+      //创建虚线框
+      // var oBox=document.createElement('div');
+      // oBox.className='box';
+      // oBox.style.width=oDiv.offsetWidth+'px';
+      // oBox.style.height=oDiv.offsetHeight+'px';
+      // oBox.style.left=oDiv.offsetLeft+'px';
+      // oBox.style.top=oDiv.offsetTop+'px';
+      // document.body.appendChild(oBox);
+
+      document.onmousemove = function(ev) {
+        var oEvent = ev || event;
+        var h = oEvent.clientX - disX;
+        // var v = oEvent.clientY - disY
+
+        //下面是拖拽边界
+        if (h < 0) {
+          h = 0;
+        }
+        else if(h > oParent.offsetWidth-oDiv.offsetWidth)
+        {
+          h = oParent.offsetWidth-oDiv.offsetWidth;
+        }
+
+        oDiv.style.left = h + 'px';
+        var scale=h/(oParent.offsetWidth-oDiv.offsetWidth);
+        document.title=scale;
+        oDiv2.style.width=400*scale+'px';
+        oDiv2.style.height=400*scale+'px';
+        oDiv2.style.filter='alpha(opacity:'+scale*100+')';//兼容IE
+        oDiv2.style.opacity=scale;
+      };
+      document.onmouseup = function() {
+        document.onmousemove = null;
+        document.onmouseup = null;
+      };
+      //注意函数嵌套关系，onmousemove在onmousedown内
+
+      return false;
+      //屏蔽火狐的bug
+    };
+
+  };
+  </script>
+</head>
+<body>
+  <div id="parent">
+    <div id="div1"></div>
+  </div>
+
+  <div id="div2"></div>
+</body>
+</html>

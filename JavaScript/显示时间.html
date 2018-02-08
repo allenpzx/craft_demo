@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1008</title>
+    <style>
+    	.title
+    	{
+			margin: 0 auto;
+    color:white;
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    background:red;
+    text-align:center;
+    	};
+    </style>
+    <script>
+    	window.onload = function () 
+{
+
+    setInterval(function refesh() 
+	{
+        var ptime = document.getElementById('ptime');
+        var newT = new Date();
+        var newTT = toDou(newT.getHours()) + ':' + toDou(newT.getMinutes()) + ':' + toDou(newT.getSeconds());
+        // alert(newTT);
+        ptime.innerHTML = newTT;
+    },1000);
+	
+    function toDou(x)
+	{
+        if (x < 10)
+		{
+            return ('0' + x);
+        }
+        else 
+		{
+            return ('' + x);
+        }
+    }
+
+
+}
+
+    </script>
+</head>
+
+<body>
+
+    <section class="title">
+        <h2>超酷的定时器</h2>
+    </section>
+
+    <section>
+        <p id="ptime">
+            
+        </p>
+    </section>
+
+</body>
+
+</html>

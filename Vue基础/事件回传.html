@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <!--绑定test组件里面的total方法，然后触发all方法-->
+    <test @total="all()"></test>
+    <test @total="all()"></test>
+    <test @total="all()"></test>
+    <test @total="all()"></test>
+    <test @total="all()"></test>
+
+    <p>所有按钮共点击了{{ff}}次</p>
+</div>
+
+<script src="vue.js"></script>
+<script>
+
+    Vue.component('test',{
+        template:`
+        <button @click="total()">点击了{{counter}}次</button>
+        `,
+        data(){
+            return {
+                counter:0
+            }
+        },
+        methods:{
+            total(){
+                this.counter += 1;
+
+                // 事件回传出去 $emit('字符串')
+                this.$emit('total');
+            }
+        }
+    });
+
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            ff:0
+        },
+        methods:{
+            all(){
+                this.ff +=1;
+            }
+        }
+    });
+</script>
+</body>
+</html>

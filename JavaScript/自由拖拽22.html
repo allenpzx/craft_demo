@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+#div1{
+  width: 200px;
+  height: 200px;
+  background: red;
+  position: absolute;
+}
+  </style>
+  <script>
+window.onload=function ()
+{
+  var oDiv=document.getElementById('div1');
+  var disX=0;
+  var disY=0;
+  oDiv.onmousedown=function (ev)
+  {
+    var oEvent=ev||event;
+    disX=oEvent.clientX-oDiv.offsetLeft;
+    disY=oEvent.clientY-oDiv.offsetTop;
+
+    document.onmousemove=function (ev)
+    {
+      var oEvent=ev||event;
+      var h=oEvent.clientX-disX;
+      var v=oEvent.clientY-disY
+
+      //下面是拖拽边界
+      if(h<0)
+      {
+        h=0;
+      }
+      else if(h>document.documentElement.clientWidth-oDiv.offsetWidth)
+      {
+        h=document.documentElement.clientWidth-oDiv.offsetWidth;
+      }
+      if(v<0)
+      {
+        v=0;
+      }
+      else if(v>document.documentElement.clientHeight-oDiv.offsetHeight)
+      {
+        v=document.documentElement.clientHeight-oDiv.offsetHeight;
+      }
+
+      oDiv.style.left=h+'px';
+      oDiv.style.top=v+'px';
+
+    };
+    document.onmouseup=function ()
+    {
+        document.onmousemove=null;
+        document.onmouseup=null;
+    };
+    //注意函数嵌套关系，onmousemove在onmousedown内
+
+    return false;
+    //屏蔽火狐的bug
+  };
+
+};
+  </script>
+</head>
+<body>
+  <div id="div1"></div>
+</body>
+</html>

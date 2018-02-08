@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js继承</title>
+  <script>
+function A()
+{
+  this.abc=12;
+};
+A.prototype.show=function ()
+{
+  alert(this.abc);
+};
+function B()
+{
+  //属性继承
+  A.call(this);
+};
+
+//下面这种操作属于‘引用’，就是B.prototype指向的是A.prototype,用的是同一个，所以B+的属性会到A里面
+// B.prototype=A.prototype;
+
+for(var i in A.prototype)
+{
+  B.prototype[i]=A.prototype[i];
+}
+B.prototype.fn=function ()
+{
+  alert('666');
+};
+var obj=new B();
+var objA=new A();
+// alert(obj.abc);
+// alert(B.prototype);
+// obj.show();
+objA.fn();
+  </script>
+</head>
+<body>
+
+</body>
+</html>

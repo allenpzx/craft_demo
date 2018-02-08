@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		ul{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #ccc;
+			list-style: none;
+			margin: 40px auto;
+			padding: 0px;
+			background: #f6f6f6;
+		}
+		ul li{
+			float: left;
+		}
+		ul li a{
+			width: 50px;
+			height: 50px;
+			background: red;
+			display: inline-block;
+			text-decoration: none;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+			filter: alpha(opacity:70);
+			opacity:0.7;
+			/*transition: all 0.5s;*/
+			margin: 20px 22px;
+		}
+		ul li a:hover{
+			filter: alpha(opacity:100);
+			opacity:1;
+		}
+		ul li a p{
+			position: absolute;
+			left: 16px;
+			top: 12px;
+		}
+		ul li a img{
+			background: #ccc;
+			width: 24px;
+			height: 24px;
+			top: 6px;
+			left: 10px;
+			border: none;
+			position: absolute;
+			filter: alpha(opacity:100);
+			opacity:1;
+		}
+	</style>
+	<script type="text/javascript" src="sportFrame.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+	<script type="text/javascript">
+		// window.onload=function ()
+		// {
+		// 	var ul1=document.getElementsByTagName('ul')[0];
+		// 	var aList=ul1.getElementsByTagName('a');
+		// 	for(var i=0;i<aList.length;i++)
+		// 	{
+		// 		aList[i].onmouseenter=function ()
+		// 		{
+		// 			var _this=this.getElementsByTagName('img')[0];
+		// 			demo(_this,{top:-20,opacity:0},function (){
+		// 				_this.style.top=10+'px';
+		// 				demo(_this,{top:6,opacity:100})
+		// 			});
+		// 		};
+		// 	}
+		// };
+		$(function (){
+			$('ul li a').on('mouseover',function (){
+				$(this).find('img').animate({top:-25,opacity:0},300,function (){
+					$(this).css({top:20});
+					$(this).animate({top:6,opacity:100},200);
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<ul>
+		<li><a href="#"><img src=""><p>11</p></a></li>
+		<li><a href="#"><img src=""><p>22</p></a></li>
+		<li><a href="#"><img src=""><p>33</p></a></li>
+		<li><a href="#"><img src=""><p>44</p></a></li>
+		<li><a href="#"><img src=""><p>55</p></a></li>
+		<li><a href="#"><img src=""><p>66</p></a></li>
+		<li><a href="#"><img src=""><p>77</p></a></li>
+		<li><a href="#"><img src=""><p>88</p></a></li>
+		<li><a href="#"><img src=""><p>99</p></a></li>
+	</ul>
+</body>
+</html>

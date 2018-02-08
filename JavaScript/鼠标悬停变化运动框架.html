@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>鼠标悬停变化运动框架</title>
+  <style>
+    div {
+      width: 100px;
+      height: 50px;
+      background: red;
+      margin: 10px;
+    }
+  </style>
+  <script>
+  window.onload=function ()
+  {
+    var aDiv=document.getElementsByTagName('div');
+    for(var i=0;i<aDiv.length;i++)
+    {
+      aDiv[i].timer=null;
+      aDiv[i].onmouseover=function ()
+      {
+        demo(this,400);
+      };
+      aDiv[i].onmouseout=function ()
+      {
+        demo(this,100);
+      };
+
+    }
+  };
+    // var timer=null;
+    function demo(obj,iTarget)
+    {
+      clearInterval(obj.timer);
+      obj.timer=setInterval(function ()
+      {
+        var speed=(iTarget-obj.offsetWidth)/6;
+        speed=speed>0?Math.ceil(speed):Math.floor(speed);
+
+        if(iTarget==obj.offsetWidth)
+        {
+          clearInterval(obj.timer);
+        }
+        else
+        {
+          obj.style.width=obj.offsetWidth+speed+'px';
+        }
+
+      },30);
+    };
+  </script>
+</head>
+
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+</body>
+
+</html>

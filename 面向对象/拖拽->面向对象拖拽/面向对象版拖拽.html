@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #div1{
+      width: 200px;
+      height: 200px;
+      background: yellow;
+      position: absolute;
+    }
+  </style>
+  <script>
+
+  //1.先把嵌套函数拿到外面来，先拿靠外层的大函数，里面的小函数一个一个拿
+  //2.把部分局部变量拿到外面做成全局变量
+  //3.构造函数一般把window.onload变成
+
+  // var oDiv=null;
+  // var disX=0;
+  // var disY=0;
+
+window.onload=function ()
+{
+  new Drag('div1');
+};
+
+function Drag(id)
+{
+  var _this=this;
+  this.disX=0;
+  this.disY=0;
+  this.oDiv=document.getElementById(id);
+  this.oDiv.onmousedown=function (ev)
+  {
+    _this.fnDown(ev);
+  };
+
+};
+
+Drag.prototype.fnDown=function (ev)
+{
+  var _this=this;
+  var oEvent=ev||event;
+  this.disX=oEvent.clientX-this.oDiv.offsetLeft;
+  this.disY=oEvent.clientY-this.oDiv.offsetTop;
+
+  document.onmousemove=function (ev)
+  {
+    _this.fnMove(ev);
+  }
+  document.onmouseup=function ()
+  {
+    _this.fnUp();
+  }
+};
+
+Drag.prototype.fnMove=function (ev)
+{
+  var oEvent=ev||event;
+  this.oDiv.style.left=oEvent.clientX-this.disX+'px';
+  this.oDiv.style.top=oEvent.clientY-this.disY+'px';
+};
+
+Drag.prototype.fnUp=function ()
+{
+  document.onmousemove=null;
+  document.onmouseup=null;
+};
+  </script>
+</head>
+<body>
+  <div id="div1"></div>
+</body>
+</html>

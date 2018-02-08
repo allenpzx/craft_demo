@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sportFrame</title>
+	<style type="text/css">
+	*{
+		margin: 0;padding: 0;
+	}
+		#div1{
+			position: relative;
+			top: 50px;
+			width: 170px;
+			left: -150px;
+		}
+		#div1 .btn{
+			width: 20px;
+			height: 50px;
+			color: white;
+			background: pink;
+			position: absolute;
+			right: 0;top: 10px;
+			cursor: pointer;
+		}
+		#div1 .content{
+			width: 150px;
+			height: 150px;
+			background: blue;
+			position: absolute;
+		}
+		#ul1{
+			list-style:none;
+			width: 500px;
+			margin: 0 auto;
+		}
+		#ul1 li{
+			width: 200px;
+			height: 50px;
+			background: yellow;
+			margin-top: 20px;
+			border: 1px solid black;
+		}
+		#div2{
+			width: 500px;
+			margin: 20px auto;
+		}
+		#div2 div{
+			width: 150px;
+			height: 150px;
+			background: red;
+			filter: alpha(opacity:30);
+			opacity:0.3;
+			display: inline-block;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function ()
+		{
+			// var oDiv=getByClass('btn','div1')[0];
+			var oDiv=document.getElementById('div1');
+			oDiv.onmouseover=function (){
+				demo2('0');
+			}
+			oDiv.onmouseout=function (){
+				// demo(this,'left','-150');
+				demo2('-150');
+			}
+
+			var oUl=document.getElementById('ul1');
+			var aLi=oUl.getElementsByTagName('li');
+			for(i in aLi)
+			{
+				aLi[i].timer=null;
+				aLi[i].onmouseover=function ()
+				{
+					demo3(this,'400');
+				};
+				aLi[i].onmouseout=function ()
+				{
+					demo3(this,'200');
+				};
+			};
+
+			var aDiv=document.getElementById('div2').getElementsByTagName('div');
+			for(var i=0;i<aDiv.length;i++)
+			{
+				aDiv[i].onmouseover=function (){
+						demo3(this,100);
+				}
+				aDiv[i].onmouseout=function (){
+						demo3(this,30);
+				}
+			}
+		};
+
+	
+
+		// var timer=null;
+	function demo(obj,attr,iTarget)
+	{
+		clearInterval(obj.timer);
+		var now=parseInt(getStyle(obj,attr));
+
+		timer=setInterval(function ()
+		{
+		var speed=(iTarget-now)/10;
+		speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			if(now==iTarget)
+			{
+				clearInterval(obj.timer);
+			}
+			else
+			{
+				obj.style[attr]=now+speed+'px';
+			}
+					
+		},50);
+		console.log('iTarget:'+iTarget+'\n'+'now:'+now+'\n'+'speed:'+speed+'\n'+'timer:'+timer);
+	};
+
+	function demo2(iTarget)
+	{
+	var oDiv=document.getElementById('div1');
+	clearInterval(timer);
+
+		timer=setInterval(function (){
+			var speed=(iTarget-oDiv.offsetLeft)/10;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			if(oDiv.offsetLeft==iTarget)
+			{
+				clearInterval(timer);
+			}
+			else
+			{
+				oDiv.style.left=oDiv.offsetLeft+speed+'px';
+			}
+			console.log(speed);
+		},30);
+	};
+
+	var alpha=30;
+	function demo3(obj,iTarget)
+	{
+		clearInterval(obj.timer)
+		obj.timer=setInterval(function (){
+
+			var speed=(iTarget-obj.offsetWidth)/10;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+
+			if(obj.offsetWidth==iTarget)
+			{
+				clearInterval(obj.timer);
+			}
+			else
+			{
+				obj.style.width=obj.offsetWidth+speed+'px';
+			}
+		},30)
+	};
+
+		function getStyle(obj,attr)
+		{
+			if(obj.currentStyle)
+			{
+				return obj.currentStyle[attr];
+			}
+			else
+			{
+				return getComputedStyle(obj,null)[attr];
+			}
+		};
+
+		function getByClass(oClass,parent)
+		{
+			var arr=[];
+			var oParent=parent?document.getElementById(parent):document;
+			var oPar=oParent.getElementsByTagName('*');
+			for(var i=0;i<oPar.length;i++)
+			{
+				if(oPar[i].className==oClass)
+				{
+					arr[i]=oPar[i];
+				}
+			}
+			return arr;
+		};
+
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<div id="btn1" class="btn" value='fx'>分享</div>
+		<div class="content"></div>
+	</div>
+	<ul id="ul1">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	<div id="div2">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+</body>
+</html>

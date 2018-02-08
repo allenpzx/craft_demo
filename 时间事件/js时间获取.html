@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	window.onload=function ()
+	{
+		countDown();
+		setInterval(showTime,500);
+	};
+	//计算时间差
+	function countDown()
+	{
+		var pp=document.getElementById('div1').getElementsByTagName('p')[1];
+
+		//获取当前时间
+		var nowTime=new Date();
+
+		//设置目标时间
+		var targetTime=new Date('2019/6/30,12:00:00');
+
+		//获取时间差，getTime获取毫秒数,1天=24小时 1小时=60分钟 1分钟=60秒 1秒=1000毫秒
+		var countTime=targetTime.getTime()-nowTime.getTime();
+
+		//总时间差换算成秒
+		var ss=parseInt(countTime/1000);
+
+		var countD=parseInt(ss/(24*60*60));//获取天数
+		var countH=parseInt(ss/(60*60)%24);//获取小时数
+		var countM=parseInt(ss/60%60);//获取分钟数
+		var countS=parseInt(ss%60);//获取秒数
+
+		//如果是个位数前面+0看起来好看
+		function ccTime(i)
+		{
+			return i<10?'0'+i:i;
+		};
+
+		pp.innerHTML='距交大本科毕业还有'+countD+'天'+countH+'小时'+countM+'分'+ccTime(countS)+'秒';
+
+		//判断到达目标时间
+		if(ss<=0)
+		{
+			pp.innerHTML='恭喜你毕业了';	
+		}
+		else
+		{
+			//递归调用的方法来不断的刷新时间
+			setTimeout(countDown,500);
+		}
+		
+	};
+		
+	//获取当前时间的方法
+	function showTime()
+	{
+		var oDiv=document.getElementById('div1');
+		var p=oDiv.getElementsByTagName('p')[0];
+		var tim=new Date()
+		var year=tim.getFullYear();
+		var month=tim.getMonth()+1;
+		var date=tim.getDate();
+		var day=tim.getDay();
+		var hour=tim.getHours();
+		var min=tim.getMinutes();
+		var s=tim.getSeconds();
+
+		//个位数前+0
+		function checkTime(i){
+			if(i<10){
+				i='0'+i;
+			}
+			return i;
+		};
+		p.innerHTML=year+'年'+month+'月'+date+'日'+'星期'+'日一二三四五六'.charAt(day)+hour+':'+checkTime(min)+':'+checkTime(s);
+	};
+
+	
+	</script>
+	<style type="text/css">
+	body{
+		background: #ccc;
+	}
+		#div1 p{
+			margin: 70px auto;
+			/*width: 300px;*/
+			height: 50px;
+			background: pink;
+			color: white;
+			text-align: center;
+			line-height: 50px;
+		}
+		#div1 span{
+		/*	display: inline-block;
+			top: 70px;
+			left: 400px;
+			margin: 50px;*/
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<span>当前时间</span><p>当前时间</p>
+		<span>目标时间</span><p>目标时间</p>
+		<span>倒计时</span><P>倒计时</P>
+	</div>
+</body>
+</html>

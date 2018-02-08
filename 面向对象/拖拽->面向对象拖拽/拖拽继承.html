@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #div1{
+      width: 200px;
+      height: 200px;
+      background: yellow;
+      position: absolute;
+    }
+    #div2{
+      width: 200px;
+      height: 200px;
+      background: pink;
+      position: absolute;
+    }
+  </style>
+  <script src="Drag.js"></script>
+  <script src="LimitDrag.js"></script>
+  <script>
+
+  //1.先把嵌套函数拿到外面来，先拿靠外层的大函数，里面的小函数一个一个拿
+  //2.把部分局部变量拿到外面做成全局变量
+  //3.构造函数一般把window.onload变成
+
+  // var oDiv=null;
+  // var disX=0;
+  // var disY=0;
+
+window.onload=function ()
+{
+  new Drag('div1');
+  new LimitDrag('div2');
+};
+
+  </script>
+</head>
+<body>
+  <div id="div1">普通拖拽</div>
+  <div id="div2">限制范围的拖拽</div>
+</body>
+</html>

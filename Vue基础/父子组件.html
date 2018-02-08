@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <my-btn></my-btn>
+    <my-btn></my-btn>
+    <my-btn></my-btn>
+</div>
+
+<template id="mybtn">
+    <button @click="counter += 1">点击的次数{{counter}}</button>
+</template>
+
+<script src="vue.js"></script>
+<script>
+
+    Vue.component('my-btn',{
+        template:"#mybtn",
+        data(){
+            return {
+                counter:0
+            }
+        }
+    });
+
+    // Vue.component("parent",{
+    //     template:`
+    //     <div>
+    //         <child1></child1>
+    //         <child2></child2>
+    //     </div>
+    //     `,
+    //     components:{
+    //         "child1":my1,
+    //         "child2":{
+    //             template:`
+    //         <div>777</div>
+    //         `
+    //         }
+    //     },
+    //     data(){
+    //         return {
+    //             mssg:"我是MT"
+    //         }
+    //     }
+    //
+    // });
+
+    let vm = new Vue({
+        el:"#app"
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    /* #div1{
+        width: 200px;
+        height: 200px;
+        background:blue;
+        position: absolute;
+        left: 200px;
+        top: 200px;
+    } */
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #div1{
+        margin: 100px auto;
+        width: 1000px;
+        height: 200px;
+        position: relative;
+        background: red;
+        overflow: hidden;
+    }
+    #div1 ul{
+        position: absolute;
+        left:0px;
+        top: 0px;
+    }
+    #div1 ul li{
+        float: left;
+        width: 200px;
+        height: 200px;
+        list-style: none;
+    }
+    #btnl{
+        width: 100px;
+        height: 50px;
+    }
+    #btnr{
+        width: 100px;
+        height: 50px;
+    }
+    </style>
+<script>
+// setInterval(function (){
+//     var div1=document.getElementById('div1');
+//     div1.style.left=div1.offsetLeft+10+'px';
+// },0);
+window.onload=function (){
+    var oDiv=document.getElementById('div1');
+    var oUl=oDiv.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    oUl.innerHTML+=oUl.innerHTML;
+    oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+    var speed=-2;
+    function demo(){
+        if(oUl.offsetLeft<-oUl.offsetWidth/2){
+            oUl.style.left='0';
+        }
+        if(oUl.offsetLeft>0){
+            oUl.style.left=-oUl.offsetWidth/2+'px';
+        }
+        oUl.style.left=oUl.offsetLeft+speed+'px';
+    }
+    var scrollImg=setInterval(demo,30);
+    oDiv.onmouseover=function (){
+        clearInterval(scrollImg);
+    }
+    oDiv.onmouseout=function (){
+        scrollImg=setInterval(demo,30);
+    }
+    var btnl=document.getElementById('btnl');
+    var btnr=document.getElementById('btnr');
+    btnl.onclick=function (){
+        speed=-2;
+    }
+    btnr.onclick=function (){
+        speed=2;
+    }
+}
+</script>
+</head>
+<body>
+    <div id="div1" onclick="alert(this.offsetLeft);">
+        <ul>
+            <li><img src="img-1010/1.jpg" alt=""></li>
+            <li><img src="img-1010/2.jpg" alt=""></li>
+            <li><img src="img-1010/3.jpg" alt=""></li>
+            <li><img src="img-1010/4.jpg" alt=""></li>
+            <li><img src="img-1010/5.jpg" alt=""></li>
+        </ul>
+    </div>
+    <button id='btnl'>向左</button>
+    <button id='btnr'>向右</button>
+</body>
+</html>

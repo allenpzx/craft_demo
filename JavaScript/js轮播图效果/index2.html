@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="move.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <script>
+function getByClass(oParent,sClass)
+{
+  var aEle=oParent.getElementsByTagName('*');
+  var aResult=[];
+  for(var i=0;i<aEle.length;i++)
+  {
+    if(aEle[i].className==sClass)
+    {
+      aResult.push(aEle[i]);
+    }
+  }
+  return aResult;
+};
+
+window.onload=function ()
+{
+  var oDiv=document.getElementById('box');
+  var oPrev=getByClass(oDiv,'prev')[0];
+  var oNext=getByClass(oDiv,'next')[0];
+  var oLeft=getByClass(oDiv,'left')[0];
+  var oRight=getByClass(oDiv,'right')[0];
+
+  oLeft.onmouseover=function ()
+  {
+    demo(this.'opacity',100);
+  };
+
+};
+  </script>
+</head>
+<body>
+    <div id="box">
+
+        <div class="prev"></div>
+        <div class="next"></div>
+        <a class="left" href="javascript:;"><img src="img/turn.svg" alt=""></a>
+        <a class="right" href="javascript:;"><img src="img/turn.svg" alt=""></a>
+
+        <div class="info">
+          <img src="img/11.jpeg" alt="">
+        </div>
+      <ul class="ul1">
+        <li><img src="img/11.jpeg" alt=""></li><li><img src="img/22.jpg" alt=""></li><li><img src="img/33.jpg" alt=""></li>
+      </ul>
+
+    </div>
+</body>
+</html>

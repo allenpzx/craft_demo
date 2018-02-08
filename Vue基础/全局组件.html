@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <mymy></mymy>
+    <mymy></mymy>
+    <mymy></mymy>
+</div>
+
+<div id="app2">
+    <p>666</p>
+    <mymy></mymy>
+    <mymy></mymy>
+    <mymy></mymy>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    // let profile = Vue.extend({
+    //     template:`
+    //     <div>
+    //         <input type="date">
+    //         <p>现在是冬天了</p>
+    //     </div>
+    //     `
+    // });
+
+    Vue.component("mymy",{
+        template:`
+        <div>
+            <input type="date">
+            <p>现在是冬天了</p>
+        </div>
+        `
+    });
+
+
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"今天天气很好"
+        }
+    });
+
+    new Vue({
+        el:"#app2"
+    });
+</script>
+</body>
+</html>

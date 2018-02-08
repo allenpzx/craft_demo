@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      position: absolute;
+      border: 2px dashed black;
+    }
+
+    #div1 {
+      width: 200px;
+      height: 200px;
+      background: red;
+      position: absolute;
+      box-shadow: 4px 4px 6px black;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+
+      var oDiv = document.getElementById('div1');
+      var disX = 0;
+      var disY = 0;
+      oDiv.onmousedown = function(ev) {
+
+
+
+        var oEvent = ev || event;
+        disX = oEvent.clientX - oDiv.offsetLeft;
+        disY = oEvent.clientY - oDiv.offsetTop;
+
+        //创建虚线框
+        var oBox=document.createElement('div');
+        oBox.className='box';
+        oBox.style.width=oDiv.offsetWidth+'px';
+        oBox.style.height=oDiv.offsetHeight+'px';
+        oBox.style.left=oDiv.offsetLeft+'px';
+        oBox.style.top=oDiv.offsetTop+'px';
+        document.body.appendChild(oBox);
+
+        document.onmousemove = function(ev) {
+          var oEvent = ev || event;
+          var h = oEvent.clientX - disX;
+          var v = oEvent.clientY - disY
+
+          //下面是拖拽边界
+          if (h < 0) {
+            h = 0;
+          } else if (h > document.documentElement.clientWidth - oDiv.offsetWidth) {
+            h = document.documentElement.clientWidth - oDiv.offsetWidth;
+          }
+          if (v < 0) {
+            v = 0;
+          } else if (v > document.documentElement.clientHeight - oDiv.offsetHeight) {
+            v = document.documentElement.clientHeight - oDiv.offsetHeight;
+          }
+
+          oBox.style.left = h + 'px';
+          oBox.style.top = v + 'px';
+
+        };
+        document.onmouseup = function() {
+          document.onmousemove = null;
+          document.onmouseup = null;
+
+          oDiv.style.left=oBox.offsetLeft+'px';
+          oDiv.style.top=oBox.offsetTop+'px';
+          document.body.removeChild(oBox);
+        };
+        //注意函数嵌套关系，onmousemove在onmousedown内
+
+        return false;
+        //屏蔽火狐的bug
+      };
+
+    };
+  </script>
+</head>
+
+<body>
+  <div id="box">
+    <div id="div1"></div>
+  </div>
+</body>
+
+</html>
