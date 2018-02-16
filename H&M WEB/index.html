@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Maximum</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <div class="navbar-header">
+          <a class="navbar-left" href="#">
+            <img alt="Brand" src="assets/logos/move-logo.svg" id="logo">
+          </a>
+        </div>
+        <!--<a class="navbar-brand" href="#">Brand</a>-->
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="#">VACANCIES <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">FUNCTIONS</a></li>
+          <li><a href="#">MY APPLICATIONS&nbsp;(3)</a>
+          <li><a href="#">MY TEAM</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 0;">
+          <li class="dropdown">
+
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi Employee <span class="glyphicon glyphicon-chevron-down"></span></a>
+
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+
+          </li>
+          <li>
+            <img src="assets/images/profile-photo.jpg" alt="profile-photo" id="profile-photo">
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+    </div><!-- /.container-fluid -->
+  </nav>
+
+      <!--banner图片-->
+      <div class="row rowb">
+        <div class="col-xs-12">
+          <div class="banner row">
+            <h1 class="hidden-xs info">V&nbsp;A&nbsp;C&nbsp;A&nbsp;N&nbsp;C&nbsp;I&nbsp;E&nbsp;S</h1>
+            <div class="hidden-xs line"></div>
+
+            <h4 class="visible-xs-block info2">V&nbsp;A&nbsp;C&nbsp;A&nbsp;N&nbsp;C&nbsp;I&nbsp;E&nbsp;S</h4>
+            <div class="visible-xs-* line"></div>
+
+            <img src="assets/images/banner-image.jpg" alt="info" class="img-responsive">
+          </div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="row row1">
+
+          <div class="col-xs-12 col-md-8 col-md-offset-4 row11" style="display: flex;  justify-content:flex-end; color: #5a5a5a;">
+            <span class="hidden-xs hidden-sm sortby">Sort By</span>
+            <div class="col-xs-12 col-md-5" style="padding-left: 0; padding-right: 0;">
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="display:flex; justify-content: space-between; align-items: center">
+                  <span>Newest Vacancy</span>
+                  <span class="col-md-2 glyphicon glyphicon-menu-down"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width: 100%">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <!--下面是分割线-->
+                  <!--<li role="separator" class="divider"></li>-->
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!--<div class="col-md-3 col-xs-12">-->
+            <!--<div class="dropdown">-->
+              <!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="display:flex; justify-content: space-between; align-items: center">-->
+                <!--<span>Newest Vacancy</span>-->
+                <!--<span class="glyphicon glyphicon-menu-down"></span>-->
+              <!--</button>-->
+              <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
+                <!--<li><a href="#">Action</a></li>-->
+                <!--<li><a href="#">Another action</a></li>-->
+                <!--<li><a href="#">Something else here</a></li>-->
+                <!--&lt;!&ndash;下面是分割线&ndash;&gt;-->
+                <!--&lt;!&ndash;<li role="separator" class="divider"></li>&ndash;&gt;-->
+                <!--<li><a href="#">Separated link</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+          <!--</div>-->
+
+        </div>
+
+        <div class="row row2">
+          <div class="col-md-4 col-xs-12" style="padding-bottom: 10px">
+
+            <div class="row filters">
+              <div class="col-md-10 col-xs-10">FILTERS</div>
+              <div class="col-md-2 col-xs-2">
+                <span class="glyphicon glyphicon-plus"></span>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-8 col-xs-12">
+
+            <div class="row find">
+              <div class="col-md-1 col-xs-3" style="font-weight: 500;">FIND</div>
+              <div class="col-md-10 col-xs-7">
+                <input type="text" placeholder="Type any Job Title">
+              </div>
+              <div class="col-md-1 col-xs-1">
+                <span class="glyphicon glyphicon-search"></span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row row3">
+          <div class="col-md-4">
+
+              <!--add此处的作用是为了顶部的线-->
+              <div class="add">
+                <h4>Clinical School Psychologist</h4>
+                <div class="ite">
+
+                  <div class="addimg">
+                    <img src="assets/icons/icon-location.svg" alt="icon-location" width="20px">
+                  </div>
+
+                  <div class='box1'>
+                    <ul class="left">
+                      <li>Location</li>
+                      <li>Function</li>
+                      <li>Status</li>
+                      <li>Published</li>
+                      <li>Expires</li>
+                    </ul>
+                    <ul class="right">
+                      <li>Eithiopia</li>
+                      <li>Product Develoment</li>
+                      <li>Open</li>
+                      <li>13 December,2017</li>
+                      <li>2 February,2020</li>
+                    </ul>
+                  </div>
+
+                </div>
+
+
+              </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <!--add此处的作用是为了顶部的线-->
+            <div class="add">
+              <h4>Clinical School Psychologist</h4>
+              <div class="ite">
+
+                <div class="addimg">
+                  <img src="assets/icons/icon-location.svg" alt="icon-location" width="20px">
+                </div>
+
+                <div class='box1'>
+                  <ul class="left">
+                    <li>Location</li>
+                    <li>Function</li>
+                    <li>Status</li>
+                    <li>Published</li>
+                    <li>Expires</li>
+                  </ul>
+                  <ul class="right">
+                    <li>Eithiopia</li>
+                    <li>Product Develoment</li>
+                    <li>Open</li>
+                    <li>13 December,2017</li>
+                    <li>2 February,2020</li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <!--add此处的作用是为了顶部的线-->
+            <div class="add">
+              <h4>Clinical School Psychologist</h4>
+              <div class="ite">
+
+                <div class="addimg">
+                  <img src="assets/icons/icon-location.svg" alt="icon-location" width="20px">
+                </div>
+
+                <div class='box1'>
+                  <ul class="left">
+                    <li>Location</li>
+                    <li>Function</li>
+                    <li>Status</li>
+                    <li>Published</li>
+                    <li>Expires</li>
+                  </ul>
+                  <ul class="right">
+                    <li>Eithiopia</li>
+                    <li>Product Develoment</li>
+                    <li>Open</li>
+                    <li>13 December,2017</li>
+                    <li>2 February,2020</li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+        <div class="row row3">
+          <div class="col-md-4">
+
+            <!--add此处的作用是为了顶部的线-->
+            <div class="add">
+              <h4>Clinical School Psychologist</h4>
+              <div class="ite">
+
+                <div class="addimg">
+                  <img src="assets/icons/icon-location.svg" alt="icon-location" width="20px">
+                </div>
+
+                <div class='box1'>
+                  <ul class="left">
+                    <li>Location</li>
+                    <li>Function</li>
+                    <li>Status</li>
+                    <li>Published</li>
+                    <li>Expires</li>
+                  </ul>
+                  <ul class="right">
+                    <li>Eithiopia</li>
+                    <li>Product Develoment</li>
+                    <li>Open</li>
+                    <li>13 December,2017</li>
+                    <li>2 February,2020</li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <!--add此处的作用是为了顶部的线-->
+            <div class="add">
+              <h4>Clinical School Psychologist</h4>
+              <div class="ite">
+
+                <div class="addimg">
+                  <img src="assets/icons/icon-location.svg" alt="icon-location" width="20px">
+                </div>
+
+                <div class='box1'>
+                  <ul class="left">
+                    <li>Location</li>
+                    <li>Function</li>
+                    <li>Status</li>
+                    <li>Published</li>
+                    <li>Expires</li>
+                  </ul>
+                  <ul class="right">
+                    <li>Eithiopia</li>
+                    <li>Product Develoment</li>
+                    <li>Open</li>
+                    <li>13 December,2017</li>
+                    <li>2 February,2020</li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <!--add此处的作用是为了顶部的线-->
+            <div class="add">
+              <h4>Clinical School Psychologist</h4>
+              <div class="ite">
+
+                <div class="addimg">
+                  <img src="assets/icons/icon-location.svg" alt="icon-location" width="20px">
+                </div>
+
+                <div class='box1'>
+                  <ul class="left">
+                    <li>Location</li>
+                    <li>Function</li>
+                    <li>Status</li>
+                    <li>Published</li>
+                    <li>Expires</li>
+                  </ul>
+                  <ul class="right">
+                    <li>Eithiopia</li>
+                    <li>Product Develoment</li>
+                    <li>Open</li>
+                    <li>13 December,2017</li>
+                    <li>2 February,2020</li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+        <div class="row row3">
+          <div class="col-md-4">
+
+            <!--add此处的作用是为了顶部的线-->
+            <div class="add">
+              <h4>Clinical School Psychologist</h4>
+              <div class="ite">
+
+                <div class="addimg">
+                  <img src="assets/icons/icon-location.svg" alt="icon-location" width="20px">
+                </div>
+
+                <div class='box1'>
+                  <ul class="left">
+                    <li>Location</li>
+                    <li>Function</li>
+                    <li>Status</li>
+                    <li>Published</li>
+                    <li>Expires</li>
+                  </ul>
+                  <ul class="right">
+                    <li>Eithiopia</li>
+                    <li>Product Develoment</li>
+                    <li>Open</li>
+                    <li>13 December,2017</li>
+                    <li>2 February,2020</li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <!--add此处的作用是为了顶部的线-->
+            <div class="add">
+              <h4>Clinical School Psychologist</h4>
+              <div class="ite">
+
+                <div class="addimg">
+                  <img src="assets/icons/icon-location.svg" alt="icon-location" width="20px">
+                </div>
+
+                <div class='box1'>
+                  <ul class="left">
+                    <li>Location</li>
+                    <li>Function</li>
+                    <li>Status</li>
+                    <li>Published</li>
+                    <li>Expires</li>
+                  </ul>
+                  <ul class="right">
+                    <li>Eithiopia</li>
+                    <li>Product Develoment</li>
+                    <li>Open</li>
+                    <li>13 December,2017</li>
+                    <li>2 February,2020</li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <!--add此处的作用是为了顶部的线-->
+            <div class="add">
+              <h4>Clinical School Psychologist</h4>
+              <div class="ite">
+
+                <div class="addimg">
+                  <img src="assets/icons/icon-location.svg" alt="icon-location" width="20px">
+                </div>
+
+                <div class='box1'>
+                  <ul class="left">
+                    <li>Location</li>
+                    <li>Function</li>
+                    <li>Status</li>
+                    <li>Published</li>
+                    <li>Expires</li>
+                  </ul>
+                  <ul class="right">
+                    <li>Eithiopia</li>
+                    <li>Product Develoment</li>
+                    <li>Open</li>
+                    <li>13 December,2017</li>
+                    <li>2 February,2020</li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+        <div class="row row3">
+          <div class="col-md-4">
+
+            <!--add此处的作用是为了顶部的线-->
+            <div class="add">
+              <h4>Clinical School Psychologist</h4>
+              <div class="ite">
+
+                <div class="addimg">
+                  <img src="assets/icons/icon-location.svg" alt="icon-location" width="20px">
+                </div>
+
+                <div class='box1'>
+                  <ul class="left">
+                    <li>Location</li>
+                    <li>Function</li>
+                    <li>Status</li>
+                    <li>Published</li>
+                    <li>Expires</li>
+                  </ul>
+                  <ul class="right">
+                    <li>Eithiopia</li>
+                    <li>Product Develoment</li>
+                    <li>Open</li>
+                    <li>13 December,2017</li>
+                    <li>2 February,2020</li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <!--add此处的作用是为了顶部的线-->
+            <div class="add">
+              <h4>Clinical School Psychologist</h4>
+              <div class="ite">
+
+                <div class="addimg">
+                  <img src="assets/icons/icon-location.svg" alt="icon-location" width="20px">
+                </div>
+
+                <div class='box1'>
+                  <ul class="left">
+                    <li>Location</li>
+                    <li>Function</li>
+                    <li>Status</li>
+                    <li>Published</li>
+                    <li>Expires</li>
+                  </ul>
+                  <ul class="right">
+                    <li>Eithiopia</li>
+                    <li>Product Develoment</li>
+                    <li>Open</li>
+                    <li>13 December,2017</li>
+                    <li>2 February,2020</li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+          <div class="col-md-4">
+
+            <!--add此处的作用是为了顶部的线-->
+            <div class="add">
+              <h4>Clinical School Psychologist</h4>
+              <div class="ite">
+
+                <div class="addimg">
+                  <img src="assets/icons/icon-location.svg" alt="icon-location" width="20px">
+                </div>
+
+                <div class='box1'>
+                  <ul class="left">
+                    <li>Location</li>
+                    <li>Function</li>
+                    <li>Status</li>
+                    <li>Published</li>
+                    <li>Expires</li>
+                  </ul>
+                  <ul class="right">
+                    <li>Eithiopia</li>
+                    <li>Product Develoment</li>
+                    <li>Open</li>
+                    <li>13 December,2017</li>
+                    <li>2 February,2020</li>
+                  </ul>
+                </div>
+
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container-fluid">
+        <div class="row footer">
+          <div class="col-xs-3 col-xs-offset-1 col-md-1 col-md-offset-1">
+            <img src="assets/logos/hm-logo.svg" alt="hm-logo">
+          </div>
+          <div class="col-xs-2 col-xs-offset-6 col-md-2 col-md-offset-7">
+            <a href="javascript:;" id="backtop">
+              <span class="text-right hidden-xs">BACK TO TOP</span>
+              <span class="glyphicon glyphicon-chevron-up"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="js/index.js"></script>
+  </body>
+</html>

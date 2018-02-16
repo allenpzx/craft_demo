@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>triangle</title>
+	<style type="text/css">
+		.triangle1{
+		    width: 0;
+		    height: 0;
+		    border-right: 50px solid transparent;
+		    border-bottom: 50px solid blue;
+		    border-left: 50px solid transparent;
+		}
+		.triangle2{
+		    width: 0;
+		    height: 0;
+		    border-top: 50px solid transparent;
+		    border-bottom: 50px solid transparent;
+		    border-left: 50px solid orange;
+		}
+		.triangle3{
+		    width: 0;
+		    height: 0;
+		    border-top: 50px solid black;
+		    border-right: 50px solid transparent;
+		    border-left: 50px solid transparent;
+		}
+		.triangle4{
+		    width: 0;
+		    height: 0;
+		    border-top: 50px solid transparent;
+		    border-right: 50px solid red;
+		    border-bottom: 50px solid transparent;
+		}
+		.triangle5{
+		    width: 10px;
+		    height: 10px;
+		    border-top: 50px solid black;
+		    border-right: 50px solid red;
+		    border-bottom: 50px solid blue;
+		    border-left: 50px solid orange;
+		}
+		.triangle6{
+		    width: 0px;
+		    height: 0px;
+		    border-top: 50px solid black;
+		    border-right: 50px solid red;
+		    border-bottom: 50px solid blue;
+		    border-left: 50px solid orange;
+		}
+		.triangle7{
+		    width: 0;
+	        height: 0;
+	        /*处理IE6最小高度问题*/
+	        overflow: hidden;
+
+	        border-width: 40px;
+	        /*不显示的边框要设置成dashed兼容ID6*/
+	        border-style: solid dashed dashed dashed;
+	        border-color:red transparent transparent transparent;
+		}
+		.triangle-topleft { 
+		width: 0; 
+		height: 0; 
+		border-top: 100px solid red; 
+		border-right: 100px solid transparent; 
+		}
+		.triangle-topleft2{
+			width: 0;
+			height: 0;
+			border-top-left-radius: 20px;
+			border-top: 50px solid red;
+			border-left: 50px solid red;
+			border-right: 50px solid transparent;
+			border-bottom: 50px solid transparent;
+		}
+		.triangle-topright { 
+		width: 0; 
+		height: 0; 
+		border-top: 100px solid red; 
+		border-left: 100px solid transparent; 
+		}
+		.triangle-bottomleft { 
+		width: 0; 
+		height: 0; 
+		border-bottom: 100px solid red; 
+		border-right: 100px solid transparent; 
+		} 
+		.triangle-bottomright { 
+		width: 0; 
+		height: 0; 
+		border-bottom: 100px solid red; 
+		border-left: 100px solid transparent; 
+		}
+	</style>
+</head>
+<body>
+	<div class="triangle1"></div><br>
+	<div class="triangle2"></div><br>
+	<div class="triangle3"></div><br>
+	<div class="triangle4"></div><br>
+	<div class="triangle5"></div><br>
+	<div class="triangle6"></div><br>
+	<div class="triangle7"></div><br>
+	<div class="triangle-topleft"></div><br>
+	<div class="triangle-topleft2"></div><br>
+	<div class="triangle-topright"></div><br>
+	<div class="triangle-bottomleft"></div><br>
+	<div class="triangle-bottomright"></div>
+</body>
+</html>
