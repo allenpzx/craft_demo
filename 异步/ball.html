@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ball {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            margin-left: 0;
+        }
+
+        .ball1 {
+            background-color: red;
+        }
+
+        .ball2 {
+            background-color: yellow;
+        }
+
+        .ball3 {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ball ball1" style="margin-left:0;"></div>
+    <div class="ball ball2" style="margin-left:0;"></div>
+    <div class="ball ball3" style="margin-left:0;"></div>
+
+    <script>
+
+        var ball1 = document.querySelector('.ball1');
+        var ball2 = document.querySelector('.ball2');
+        var ball3 = document.querySelector('.ball3');
+
+        // offsetLeft只读,style.left可读可写,style.left获取的是行间样式
+        // console.log(ball1.style.left);
+        // console.log(ball3.offsetLeft);
+        // console.log(window.getComputedStyle(ball1,null).left);
+
+        function animate(ball, distance) {
+
+            const promise = new Promise(function (resolve, reject) {
+
+                function _animate() {
+
+                    setTimeout(function () {
+                        var marginLeft = parseInt(ball.style.marginLeft, 10);
+
+                        if (marginLeft == distance) {
+                            resolve();
+                        } else {
+
+                            if (marginLeft < distance) {
+                                marginLeft++;
+                            } else {
+                                marginLeft--;
+                            }
+                            ball.style.marginLeft = marginLeft + 'px';
+                            _animate();
+                        }
+
+                    }, 13);// setTimeout结尾处
+
+                };//_animate函数结尾处
+
+                _animate();
+
+            })//promise结尾处
+
+            return promise;
+        };// animate函数结尾处
+        
+        animate(ball1,300)
+        .then(()=>{
+            return animate(ball2,300);
+        })
+        .then(()=>{
+            return animate(ball3,300);
+        })
+        .catch(()=>{
+            console.log('promise出错');
+        }).finally(()=>{
+            console.log('动画执行成功');
+        });
+
+    </script>
+</body>
+
+</html>
