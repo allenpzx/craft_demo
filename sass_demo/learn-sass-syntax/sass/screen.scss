@@ -1,0 +1,106 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+/*!
+ * CONTENTS
+ *
+ * SETTINGS
+ * _variables.scss..........................变量集中存储文件
+ * mixin....................................mixin集中存储文件
+ * TOOLS
+ *
+ * COMPONENTS
+ * reset....................................Compass 内置浏览器重置的样式文件
+ *
+ * BUSINESS
+ *
+ * BASE
+ * screen.scss..............................针对当前站点主页的样式文件
+ */
+
+@import "variables","mixin","icons";
+// @import "compass/reset";
+@import "normalize";
+
+@import "compass/css3";
+// @import "compass/layout/grid-background";
+@import "compass/typography/links";
+@import "compass/typography/lists";
+@import "compass/typography/text";
+@import "compass/typography/vertical_rhythm";
+@import "compass/utilities/print";
+@import "compass/utilities/tables";
+
+// @include print-utilities(screen);
+
+$base-font-size:16px;
+$base-line-height:24px;
+
+// @include establish-baseline();
+// body{
+//     @include debug-vertical-alignment();
+// }
+
+.h1{
+    // font-size:3em;
+    // line-height:48px;
+    
+    @include adjust-font-size-to(48px);
+}
+
+.text-hide{
+    @include hide-text();
+}
+
+/*主标题样式*/
+.headline{
+    font-family: $headline-ff;
+}
+
+/*页面主体样式*/
+.main-sec {
+    font-family: $main-sec-ff;
+
+    @at-root{
+        .main-sec-headline{
+            font: {
+                family:$main-sec-ff;
+                size:16px;
+            }
+        }
+
+        .main-sec-detail{
+            font-size: 12px;
+        }
+    }
+}
+
+p {
+    color:hsl(270,100%,50%);
+}
+
+.webdemo-sec {
+    @include col-sm(50%);
+
+    // box-shadow:1px 1px 3px 2px #cfcecf;
+    @include box-shadow(1px 1px 3px 2px #cfcecf);
+
+    &:hover{
+        background-color: #f5f5f5;
+    }
+}
+
+%error{
+    color:#f00;
+}
+
+.serious-error{
+    @extend %error;
+    border:1px #f00; 
+}
+
+.text-line-block{
+    display: block;
+}

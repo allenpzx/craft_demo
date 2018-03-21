@@ -1,0 +1,11 @@
+@import "compass/utilities/sprites";
+
+//是否设置图片宽高
+$logo-sprite-dimensions : true;
+// $logo-layout:horizontal;
+@import "logo/*.png";
+@include all-logo-sprites();
+
+.main-logo{
+    @include logo-sprite("test3");
+}

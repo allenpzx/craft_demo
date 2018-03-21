@@ -1,0 +1,113 @@
+@import "compass/utilities/sprites/base";
+
+// General Sprite Defaults
+// You can override them before you import this file.
+$logo-sprite-dimensions : false !default;
+$logo-use-percentages   : false !default;
+$logo-position          : 0% !default;
+$logo-spacing           : 0 !default;
+$logo-repeat            : no-repeat !default;
+$logo-prefix            : '' !default;
+$logo-clean-up          : true !default;
+$logo-layout            : vertical !default;
+$logo-inline            : false !default;
+$logo-sort-by           : 'none' !default;
+$logo-class-separator   : $default-sprite-separator !default;
+$logo-sprite-base-class : ".logo#{$logo-class-separator}sprite" !default;
+
+  
+ // These variables control the generated sprite output
+ // You can override them selectively before you import this file.
+ 
+   $logo-test1-position: $logo-position !default;
+   $logo-test1-spacing:  $logo-spacing !default;
+   $logo-test1-repeat:   $logo-repeat !default;
+ 
+   $logo-test2-position: $logo-position !default;
+   $logo-test2-spacing:  $logo-spacing !default;
+   $logo-test2-repeat:   $logo-repeat !default;
+ 
+   $logo-test3-position: $logo-position !default;
+   $logo-test3-spacing:  $logo-spacing !default;
+   $logo-test3-repeat:   $logo-repeat !default;
+ 
+   $logo-test4-position: $logo-position !default;
+   $logo-test4-spacing:  $logo-spacing !default;
+   $logo-test4-repeat:   $logo-repeat !default;
+ 
+
+ $logo-sprites: sprite-map("logo/*.png",
+ 
+   $logo-test1-position: $logo-test1-position, 
+   $logo-test1-spacing:  $logo-test1-spacing, 
+   $logo-test1-repeat:   $logo-test1-repeat,
+ 
+   $logo-test2-position: $logo-test2-position, 
+   $logo-test2-spacing:  $logo-test2-spacing, 
+   $logo-test2-repeat:   $logo-test2-repeat,
+ 
+   $logo-test3-position: $logo-test3-position, 
+   $logo-test3-spacing:  $logo-test3-spacing, 
+   $logo-test3-repeat:   $logo-test3-repeat,
+ 
+   $logo-test4-position: $logo-test4-position, 
+   $logo-test4-spacing:  $logo-test4-spacing, 
+   $logo-test4-repeat:   $logo-test4-repeat,
+ 
+ $layout   : $logo-layout,
+ $cleanup  : $logo-clean-up,
+ $spacing  : $logo-spacing,
+ $position : $logo-position,
+ $sort-by  : $logo-sort-by
+ );
+
+
+// All sprites should extend this class
+// The logo-sprite mixin will do so for you.
+@if $logo-inline {
+  #{$logo-sprite-base-class} {
+    background-image: inline-sprite($logo-sprites);
+  } 
+} @else {
+  #{$logo-sprite-base-class} {
+    background-image: sprite-url($logo-sprites);
+    background-repeat: no-repeat;
+  }
+}
+//sass functions to return the dimensions of a sprite image as units
+
+  @function logo-sprite-width($name) {
+    @return sprite-width($logo-sprites, $name);
+  }
+
+  @function logo-sprite-height($name) {
+    @return sprite-height($logo-sprites, $name);
+  }
+
+
+// Use this to set the dimensions of an element
+// based on the size of the original image.
+@mixin logo-sprite-dimensions($name) {
+  @include sprite-dimensions($logo-sprites, $name)
+}
+
+// Move the background position to display the sprite.
+@mixin logo-sprite-position($name, $offset-x: 0, $offset-y: 0, $use-percentages: $logo-use-percentages) {
+  @include sprite-background-position($logo-sprites, $name, $offset-x, $offset-y, $use-percentages)
+}
+
+// Extends the sprite base class and set the background position for the desired sprite.
+// It will also apply the image dimensions if $dimensions is true.
+@mixin logo-sprite($name, $dimensions: $logo-sprite-dimensions, $offset-x: 0, $offset-y: 0, $use-percentages: $logo-use-percentages, $separator: $logo-class-separator) {
+  @extend #{$logo-sprite-base-class};
+  @include sprite($logo-sprites, $name, $dimensions, $offset-x, $offset-y, $use-percentages, $separator: $separator);
+}
+
+@mixin logo-sprites($sprite-names, $dimensions: $logo-sprite-dimensions, $prefix: sprite-map-name($logo-sprites), $offset-x: 0, $offset-y: 0, $use-percentages: $logo-use-percentages, $separator: $logo-class-separator) {
+  @include sprites($logo-sprites, $sprite-names, $logo-sprite-base-class, $dimensions, $prefix, $offset-x, $offset-y, $use-percentages, $separator: $separator)
+}
+
+// Generates a class for each sprited image.
+@mixin all-logo-sprites($dimensions: $logo-sprite-dimensions, $prefix: sprite-map-name($logo-sprites), $offset-x: 0, $offset-y: 0, $use-percentages: $logo-use-percentages, $separator: $logo-class-separator) {
+  @include logo-sprites(test1 test2 test3 test4, $dimensions, $prefix, $offset-x, $offset-y, $use-percentages, $separator: $separator);
+}

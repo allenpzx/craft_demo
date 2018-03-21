@@ -100,13 +100,17 @@
 </template>
 
 <script>
+
+    import test from './test.vue';
+
+
     // 1.创建组件
     let t1 = Vue.component('test1',{
         template:"#test1"
     });
 
     let t2 = Vue.component('test2',{
-        template:"#test2"
+        template:test
     });
 
     let t3 = Vue.component('test3',{
