@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据双向绑定</title>
+    <style>
+        #output{
+            border: 1px solid #ccc;
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <label for="input">输入内容</label>
+    <input type="text" id="input">
+    <label for="output">内容显示区域</label>
+    <textarea id="output"></textarea>
+    <script>
+        let input = document.querySelector('#input');
+        let output = document.querySelector('#output');
+        let data = {};
+        Object.defineProperty(data, 'input',{
+                configurable: true,
+                get: () => {
+                    return input.value;
+                },
+                set: x => {
+                    input.value = x;
+                    output.value = x;
+                }
+        });
+        input.addEventListener('keyup', () => {
+            output.value = data.input;
+        });
+        output.addEventListener('keyup', () => {
+            data.input = output.value;
+        });
+    </script>
+</body>
+</html>
