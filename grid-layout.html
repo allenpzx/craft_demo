@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>grid layout</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* @media screen and (min-width: 500px) {
+            .container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media screen and (min-width: 800px) {
+            .container {
+                grid-template-columns: [line1] 1fr [line2] 1fr [line3] 1fr [line4] 1fr [line5];
+            }
+        } */
+
+        .container {
+            display: grid;
+            /* 横向的间距 */
+            grid-row-gap: 10px;
+            /* 列间距 */
+            grid-column-gap: 10px;
+            /* 列布局 */
+            grid-template-columns: 1fr 2fr 1fr;
+            /* 行布局 */
+            grid-template-rows: 1fr 1fr 1fr;
+            background-color: pink;
+
+            /* 如果定义的item块不在定义的行和列范围内,将会有默认的行和列生成,默认是0,下面可以设置默认生成的列宽度 */
+            grid-auto-columns: 100px;
+            /* 元素自动排列的方向默认为row */
+            grid-auto-flow: column;
+
+            /* 也可以为区块定义名称 */
+            /* grid-template-areas:  */
+        }
+
+        .row {
+            background-color: #0069b3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-size: 70px;
+            color: white;
+            line-height: 1;
+            font-family: 'hobeaux-rococeaux-background', Helvetica;
+            font-weight: 200;
+            cursor: pointer;
+            transition: all 1s ease;
+        }
+
+        .row:first-child {
+            /* 这个属性加在容器内项目自身,第一个数字是从哪条线开始,第二个参数表示到哪条线结束,如果第二数字前是 span + 数字,表示变成多少个单元格 */
+            grid-column: 1 / 4;
+        }
+        .row:nth-child(2) {
+            background-color: yellow;
+            height: 300px;
+            grid-row: 2 / 4;
+        }
+        .row:nth-child(3) {
+            grid-column: 2 / span 1;
+            grid-row: 2 / span 2;
+            height: 100px;
+            width: 100px;
+            justify-self: center;
+            align-self: center;
+        }
+        .row:nth-child(4) {
+            height: 200px;
+            grid-row: 2 / 4;
+            /* grid-column: 2 / 2; */
+            align-self: end;
+        }
+        .row:nth-child(6) {
+            grid-column: 5 / 6;
+            grid-row: 2 / 3;
+        }
+        .row:last-child {
+            grid-column: 1 / 4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">A</div>
+        <div class="row">B</div>
+        <div class="row">C</div>
+        <div class="row">D</div>
+        <div class="row">E</div>
+        <div class="row">F</div>
+        <div class="row">F1</div>
+        <div class="row">F2</div>
+        <div class="row">F3</div>
+        <div class="row">G</div>
+    </div>
+</body>
+
+</html>
