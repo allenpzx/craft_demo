@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #btn {
+            width: 200px;
+            height: 30px;
+            background-color: orangered;
+            color: white;
+            margin: 50px auto;
+        }
+
+        .demo {
+            width: 80px;
+            height: 80px;
+            animation: wow 2s infinite;
+            /* animation-fill-mode : none | forwards | backwards | both; */
+            /* forwards	当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。 */
+            /* backwards	在 animation-delay 所指定的一段时间内，在动画显示之前，应用开始属性值（在第一个关键帧中定义）。 */
+            /* both	向前和向后填充模式都被应用。 */
+            position: relative;
+            left: 200px;
+            top: 200px;
+        }
+
+        @keyframes wow {
+            0% {
+                left: 200px;
+                top: 200px;
+            }
+            50% {
+                left: 300px;
+                top: 300px;
+                transform: scale(1.5, 1.5) rotate(360deg);
+            }
+            100% {
+                left: 200px;
+                top: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="demo">
+        <img src="demo.png" alt="demo">
+    </div>
+
+    <input id="btn" type="button" value="切换动画的状态">
+    <script>
+        let btn = document.querySelector('#btn');
+        let ele = document.querySelector('.demo');
+        btn.onclick = () => {
+            console.log(ele.style.webkitAnimationPlayState);
+            if(ele.style.webkitAnimationPlayState == 'running'){
+                ele.style.webkitAnimationPlayState = 'paused';
+            }else{
+                ele.style.webkitAnimationPlayState = 'running';
+            }
+        }
+
+        // obj.style.animationFillMode = none;
+
+        ele.addEventListener('animationstart', function () {
+            console.log('动画开始');
+        });
+        ele.addEventListener('animationend', function () {
+            console.log('动画结束');
+        });
+        ele.addEventListener('animationiteration', function () {
+            console.log('动画迭代');
+        });
+        // obj.addEventListener('WebkitTransitionEnd',fn);
+        // obj.addEventListener('transitionend',fn);
+    </script>
+</body>
+
+</html>
