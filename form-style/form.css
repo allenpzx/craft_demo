@@ -1,0 +1,224 @@
+/* 
+    所有表单都放在容器#main里面
+    对应DOM结构参考form.html
+
+    .formInfo 表示左侧表单介绍卡片
+    #form 表示表格主要区域
+    .item-text 表示文本框
+    .item-radio 表示单选按钮组
+    .item-checkbox 表示复选框
+
+    Author: Peng ZiXiu
+*/
+
+/* 布局 所有的表单的内容都放在这个容器 */
+#main {
+    min-width: 750px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 7fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 30px;
+    justify-items: center;
+}
+
+/* 左侧表单介绍卡片 */
+.formInfo {
+    padding: 20px 30px;
+    box-shadow: 0 3px 8px 1px #ccc;;
+    width: 180px;
+    height: 220px;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    transform: translate3d(0px, 100px, 0px) scale(1);
+    transition: all 0.3s;
+}
+
+.formInfo:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 16px 32px 0px; 
+    transform: translate3d(0px, 90px, 0px) scale(1.2);
+}
+
+.formInfo h2 {
+    font-weight: 400;
+}
+
+.formInfo ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.formInfo ul li {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgb(129, 129, 129);
+    margin-bottom: 20px;
+}
+
+.formInfo ul li a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+    color: rgb(129, 129, 129);
+}
+
+.formInfo li i {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-left: -18px;
+    margin-right: 8px;
+    background-color: yellow;
+}
+
+.formInfo li span{
+    border-bottom: 2px solid #f8ff55;
+}
+
+/* 表格区域 */
+#form {
+    /* display: inline-block; */
+    box-sizing: border-box;
+    color: #1f2f3d;
+    height: auto;
+    width: 100%;
+    margin-top: 100px;
+    padding: 80px 20px;
+    border: 2px solid #ccc;
+    display: grid;
+    justify-content: space-around;
+    justify-items: end;
+    align-items: center;
+
+    grid-row-gap: 30px;
+    grid-column: 3 / 4;
+    grid-row: 1 / span 2;
+    align-self: end;
+}
+
+/* 偶数行(金额行) */
+.item-text:nth-child(even) { 
+    font-size: 14px;
+    color: #bbb;
+}
+
+/* label和input间距 */
+.item-text input {
+    margin-left: 20px;
+    padding-left: 20px;
+    width: 500px;
+    height: 30px;
+}
+
+/* 提示文字 */
+.item-text input::-webkit-input-placeholder{
+    font-weight: 200;
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* 单选按钮的样式 */
+.item-radio{
+    display: inline;
+    justify-self: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.item-radio .radio{
+    padding: 10px;
+}
+.item-radio span{
+    font-size: 18px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.item-radio input[type="radio"] + label::before{
+    content: "\a0"; /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    width: 1em;
+    height: 1em;
+    margin-right: .5em;
+    border-radius: 50%;
+    border: 2px solid #FFFF00;
+    text-indent: .15em;
+    line-height: 1; 
+    box-sizing: border-box;
+}
+.item-radio input[type="radio"]:checked + label::before {
+    background-color: #FFFF00;
+    background-clip: content-box;
+    padding: .2em;
+}
+
+.item-radio input[type="radio"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.item-checkbox {
+    display: inline;
+    justify-self: center;
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.item-checkbox span{
+    font-size: 18px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.item-checkbox .checkbox {
+    padding: 10px;
+}
+.item-checkbox input[type="checkbox"] + label::before{
+    content: "\a0"; /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    width: 1em;
+    height: 1em;
+    margin-right: .5em;
+    border: 2px solid #FFFF00;
+    text-indent: .15em;
+    line-height: 1; 
+    box-sizing: border-box;
+}
+.item-checkbox input[type="checkbox"]:checked + label::before {
+    background-color: #FFFF00;
+    background-clip: content-box;
+    padding: .2em;
+}
+
+.item-checkbox input[type="checkbox"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+/* 提交按钮 */
+.formSubmit {
+    margin: 60px 0;
+    width: 100px;
+    height: 30px;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fef46c;
+    border: 1px solid #fef46c;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px 0px;
+    transition: all 0.3s; 
+}
+
+.formSubmit:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 16px 32px 0px;
+    transform: scale(1.1);
+}
