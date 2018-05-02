@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hover-card</title>
+    <style>
+        html,
+        body {
+            background-color: #fff;
+        }
+
+        .projects {
+            margin: 0 auto;
+            margin-bottom: 40px;
+            width: 80%;
+            height: auto;
+            /* background-color: #ccc; */
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-row-gap: 20px;
+            grid-column-gap: 10px;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .project {
+            box-shadow: 0 4px 10px 2px #ccc;
+            border-radius: 6px;
+            position: relative;
+            width: 250px;
+            height: 250px;
+            transition: all 0.3s;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .project-info {
+            text-align: center;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: all 0.3s;
+            color: white;
+            /* padding: 20px 0; */
+        }
+
+        .project-info span {
+            display: block;
+            transform: translate3d(0, 10px, 0);
+            transition: all 0.3s;
+        }
+
+        .project-img {
+            max-width: 100%;
+            height: auto;
+            transition: all 0.3s;
+        }
+
+        .project:hover .project-info {
+            opacity: 1;
+        }
+
+        .project:hover .project-info span {
+            transform: translate3d(0, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="projects">
+        <div class="project">
+            <img class="project-img" src="{{asset('images/card1.jpeg')}}" alt="">
+            <div class="project-info">
+                <span>一些介绍的文字</span>
+                <span>一些介绍的文字</span>
+            </div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="{{asset('images/card1.jpeg')}}" alt="">
+            <div class="project-info">
+                <span>一些介绍的文字</span>
+                <span>一些介绍的文字</span>
+            </div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="{{asset('images/card1.jpeg')}}" alt="">
+            <div class="project-info">
+                <span>一些介绍的文字</span>
+                <span>一些介绍的文字</span>
+            </div>
+        </div>
+
+        <div class="project">
+            <img class="project-img" src="{{asset('images/card1.jpeg')}}" alt="">
+            <div class="project-info">
+                <span>一些介绍的文字</span>
+                <span>一些介绍的文字</span>
+            </div>
+        </div>
+
+        <div class="project">
+            <img class="project-img" src="{{asset('images/card1.jpeg')}}" alt="">
+            <div class="project-info">
+                <span>一些介绍的文字</span>
+                <span>一些介绍的文字</span>
+            </div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="{{asset('images/card1.jpeg')}}" alt="">
+            <div class="project-info">
+                <span>一些介绍的文字</span>
+                <span>一些介绍的文字</span>
+            </div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="{{asset('images/card1.jpeg')}}" alt="">
+            <div class="project-info">
+                <span>一些介绍的文字</span>
+                <span>一些介绍的文字</span>
+            </div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="{{asset('images/card1.jpeg')}}" alt="">
+            <div class="project-info">
+                <span>一些介绍的文字</span>
+                <span>一些介绍的文字</span>
+            </div>
+        </div>
+        <div class="project">
+            <img class="project-img" src="{{asset('images/card1.jpeg')}}" alt="">
+            <div class="project-info">
+                <span>一些介绍的文字</span>
+                <span>一些介绍的文字</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
