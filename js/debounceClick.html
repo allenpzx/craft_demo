@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #content {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">点击</button>
+    <div id="content">我是默认内容</div>
+
+    <script>
+        let initial_time = null;
+        document.getElementById('btn').onclick = () => {
+
+            if(initial_time == null) {
+                initial_time = parseInt(new Date().getTime()/1000);
+                document.getElementById('content').innerText = '我是改变的内容';
+            }else{
+                let dis = parseInt(new Date().getTime()/1000)-initial_time;
+                if(dis<5) {
+                    console.log('请5秒后提交');
+                    return
+                }else{
+                    document.getElementById('content').innerText = '我是改变的内容555555555';
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>
