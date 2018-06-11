@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scrollAnimate</title>
+    <style>
+        .sticky{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: sticky;
+            top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <div class="sticky">
+
+    </div>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p>测试</p>
+    <p onclick="scrollWindow()">测试</p>
+    <p>测试</p>
+    <script>
+        var sport = null;
+        const scrollWindow = () => {
+            clearInterval(sport);
+            sport = setInterval(() => {
+                console.log('inner')
+                var ST = document.body.scrollTop || document.documentElement.scrollTop;
+                var speed = parseInt(ST/10);
+                if (ST <= 10) {
+                    clearInterval(sport);
+                    window.scrollTo(0, 0);
+                }else {
+                    ST -= speed;
+                    window.scrollTo(0, ST);
+                }
+            }, 0)
+        }
+
+        // 防止频繁点击
+        var initial_time = null;
+        function debounce(time, callback){
+            if(initial_time == null) {
+                initial_time = parseInt(new Date().getTime()/1000);
+                callback
+            }else{
+                var dis = parseInt(new Date().getTime()/1000)-initial_time;
+                if(dis<time) {
+                    alert('请'+time+'秒后提交');
+                    return
+                }else{
+                    if(callback){
+                        callback;
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

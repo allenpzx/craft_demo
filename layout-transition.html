@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;padding: 0;
+            transition: all 1s;
+        }
+        .box {
+            width: 100%;
+            display: grid;
+            grid-gap: 2em;
+            column-gap: 2em;
+            background-color: yellow;
+            transition: all 1s;
+        }
+
+        .box1 {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            /* animation: flexanimation 1s infinite both; */
+        }
+
+        .item {
+            width: 10em;
+            height: 10em;
+            margin: 20px;
+        }
+
+        @keyframes flexanimation {
+            0% {
+                justify-content: space-evenly;
+            }
+            100% {
+                justify-content: space-around;
+            }
+        }
+
+        /* @media screen and (min-width: 1000px) {
+            .box {
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                grid-template-rows: 60px 60px;
+            }
+        }
+        
+        @keyframes ceshi {
+            0%{
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;                
+            }
+            100%{
+                grid-template-columns: 1fr 1fr 1fr;                
+            }
+        }
+        @media screen and (max-width: 1000px) {
+            .box {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 60px 60px 60px 60px;                
+            }
+        } */
+
+        .item {
+            background-color: pink;
+            transition: all 0.5s;
+            border: 1px solid #ccc;
+        }
+
+        .animate-on-transforms {
+            transition: all 0.5s;
+            animation: ceshi 1s infinite forwards;            
+        }
+        .example{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            box-shadow: 1px 1px 6px 0 #ccc;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box1">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+    </div>
+    <div id="example" class="example">example</div>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <p>2</p>
+    <button id="btn1">shuffle</button>
+    <script src="https://cdn.bootcss.com/lodash.js/4.17.10/lodash.js"></script>
+    <script>
+
+        window.requestAnimationFrame = (function(){
+            return  window.requestAnimationFrame       || 
+                    window.webkitRequestAnimationFrame || 
+                    window.mozRequestAnimationFrame    || 
+                    window.oRequestAnimationFrame      || 
+                    window.msRequestAnimationFrame     || 
+                    function( callback ){
+                    window.setTimeout(callback, 1000 / 60);
+                    };
+        })();
+
+        let ceshi = document.getElementById('example');
+        function render(){
+            ceshi.style.left=ceshi.offsetLeft+2+'px';
+            let raf = requestAnimationFrame(render);
+        }
+        render();
+
+
+        const scrollWindow = () => {
+            var ST = document.body.scrollTop || document.documentElement.scrollTop;
+            var raf;
+            if (ST >= 10) {
+                let speed = parseInt(ST/10);
+                // speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                ST -= speed;
+                window.scrollTo(0, ST);
+                raf = requestAnimationFrame(scrollWindow);
+            }else{
+                cancelAnimationFrame(raf);
+                window.scrollTo(0, 0);
+            }
+        }
+
+        document.getElementById('btn1').onclick = () => {
+            // requestAnimationFrame(render);
+            scrollWindow();
+        }
+    </script>
+</body>
+
+</html>

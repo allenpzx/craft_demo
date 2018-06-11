@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input id="text" type="text">
+    <p>abcdef</p>
+    <div id="box">
+        123456 I'm Box
+    </div>
+    <input id="empty" type="text">
+    <input id="btn" type="button" value="复制">
+
+    <script>
+        document.getElementById('btn').onclick = () => {
+            document.getElementById('empty').value = document.getElementById('box').innerText;
+            document.getElementById('empty').select();
+            document.execCommand("Copy"); 
+            console.log(document.getElementById('box').innerText)
+            alert('复制成功');
+        }
+    </script>
+</body>
+</html>

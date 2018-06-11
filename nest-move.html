@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .fa{
+            margin: 50px auto;
+            width: 500px;
+            height: 500px;
+            background-color: #ccc;
+            transition: all 1s;
+            position: relative;
+        }
+        .fa:hover{
+            background-color: blue;
+        }
+        .fa:hover div.chi{
+            height: 250px;
+            opacity: 1;
+        }
+        .chi {
+            position: absolute;
+            opacity: 0;
+            left: 0;
+            bottom: 0;
+            width: 500px;
+            height: 0px;
+            background-color: black;
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="fa">
+        <div class="chi"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #sel{
+            width: 50vh;
+            height: 50vh;
+        }
+    </style>
+</head>
+<body>
+    
+    <select name="" id="sel" multiple>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+
+    <button id="btn1">btn1</button>
+    <button id="btn2">btn2</button>
+    <script>
+
+        document.getElementById('btn1').onclick = e => {
+            alert('from btn 1');
+            document.getElementById('btn2').onclick();
+        }
+
+        document.getElementById('btn2').onclick = e => {
+            alert('from btn 2');
+        }
+
+
+        document.getElementById('sel').onclick = e => {
+            // console.log(e.target.nodeName)
+            // console.log(e.target.value)
+            if(e.target && e.target.nodeName === 'OPTION'){
+                if(parseInt(e.target.value) === 1){
+                    e.target.parentNode.multiple = false;
+                }
+            }else if(e.target && e.target.nodeName === 'SELECT'){
+                if(e.target.value !== 1){
+                    e.target.multiple = true;                    
+                }else{
+                    e.target.multiple = false;                 
+                }
+            }
+        }
+    </script>
+</body>
+</html>
