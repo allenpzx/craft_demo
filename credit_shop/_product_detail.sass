@@ -1,0 +1,348 @@
+.product_detail
+    width: 100vw
+    min-height: 100vh
+    // border: 2px solid red
+    box-sizing: border-box
+    background-color: #f6f6f6
+
+.product_images
+    width: 100vw
+    // max-height: 40vh
+    // border: 2px solid red
+    // box-sizing: border-box
+    // overflow: hidden
+    position: relative
+    top: 0
+    left: 0
+    background-color: white
+
+    .slick-slide
+        // border: 2px solid blue
+        // box-sizing: border-box
+        position: relative
+
+    .image_wrap
+        width: 100vw
+        height: 100%
+        position: relative
+
+        img
+            display: block
+            width: 100%
+            height: 75%
+        //     object-fit: cover
+            
+.controller
+    width: 90%
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    justify-content: space-between
+    align-items: center
+    padding: 10px 0
+    position: absolute 
+    top: 0
+    left: 5%
+    right: 5%
+
+    span
+        width: 2rem
+        height: 2rem
+        background-color: rgba(220, 220, 220, 0.4)
+        border-radius: 50%
+        display: flex
+        justify-content: center
+        align-items: center
+
+        img
+            width: 70%
+            height: 70%
+            object-fit: cover
+
+    span:nth-child(1)
+
+        img
+            width: 50%
+            height: 50%
+
+.product_info
+    width: 100vw
+    // border: 2px solid red
+    box-sizing: border-box
+    position: relative
+    display: flex
+    flex-direction: column
+    flex-wrap: nowrap
+    justify-content: flex-start
+    align-items: center
+    background-color: white
+
+    .info_row
+        width: 90%
+        padding: 4px 0
+        // border: 1px solid blue
+
+    .info_row:nth-child(1)
+        span
+            color: #eec79b
+            font-size: 14px
+
+    .info_row:nth-child(2)
+        display: flex
+        flex-direction: row
+        flex-wrap: nowrap
+        justify-content: space-between
+        align-items: center
+
+        span:nth-child(1)
+            font-size: 1rem
+            color: black
+
+        div
+            display: flex
+            flex-direction: column
+            flex-wrap: nowrap
+            justify-content: center
+            align-items: center
+            img
+                width: 1.5rem
+                height: 1.5rem
+            span
+                margin-top: 4px
+                font-size: 14px
+                color: #cccccc
+
+    .info_row:nth-child(3)
+        display: flex
+        flex-direction: row
+        flex-wrap: nowrap
+        justify-content: space-between
+        align-items: center
+
+        .info_price
+            display: flex
+            flex-direction: row
+            flex-wrap: nowrap
+            justify-content: space-between
+            align-items: center
+
+        .common_price
+            color: #eec79b
+            font-size: 1rem
+            display: inline-block
+            margin-right: 10px
+
+        .vip_special_price
+            display: inline-block
+            padding: 4px 5px
+            background-color: #eec79b
+            border-radius: 4px
+
+        div:nth-child(2)
+            display: flex
+            flex-direction: column
+            flex-wrap: nowrap
+            justify-content: center
+            align-items: flex-end
+            font-size: 12px
+            color: #cccccc
+
+.vip_special_competencies
+    display: flex
+    flex-direction: column
+    flex-wrap: nowrap
+    justify-content: center
+    align-items: center
+    margin-top: 10px
+    background-color: white
+
+    div:nth-child(1)
+        font-family: serif
+        text-align: left
+        width: 90%
+        margin: 6px 0
+        color: #eec79b
+        font-weight: 600
+        font-size: 16px
+
+    div:nth-child(2)
+        width: 90%
+        display: flex
+        flex-direction: row
+        flex-wrap: nowrap
+        justify-content: flex-start
+        align-items: center
+        // border: 1px solid red
+
+    span
+        padding: 4px 0
+        display: flex
+        flex-direction: row
+        flex-wrap: nowrap
+        justify-content: center
+        align-items: center
+        font-size: 12px
+        margin-right: 4px
+
+        img
+            width: 1.2rem
+            height: 1.2rem
+            margin-right: 4px
+
+    .more_competencies
+        position: absolute
+        right: 0
+
+        img
+            width: .9rem
+            height: .9rem
+
+.product_description
+    margin-top: 10px
+    // border: 2px solid red
+    box-sizing: border-box
+
+    .tittle
+        width: 100%
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 2px 0
+        background-color: white
+
+        img
+            width: 1rem
+            height: auto
+            margin-right: 5px
+            margin-left: 5px
+        span
+            margin-right: 5px
+
+        &:before
+            content: ''
+            display: inline-block
+            width: 30%
+            height: 1px
+            background-color: #cccccc
+
+        &:after
+            content: ''
+            display: inline-block
+            width: 30%
+            height: 1px
+            background-color: #cccccc
+    .img_area
+        width: 100%
+        position: relative
+        margin: 0
+        padding: 0
+
+        img
+            width: 100%
+            height: auto
+            margin: 0
+            padding: 0
+
+.brand_info
+    margin: 0 auto
+    width: 100%
+    position: relative
+    // border: 2px solid red
+    padding: 0 10px
+    background-color: white
+    box-sizing: border-box
+
+    div.line1
+        width: 100%
+        padding: 10px 0
+        width: 100%
+        display: flex
+        flex-direction: row
+        flex-wrap: nowrap
+        justify-content: flex-start
+        align-items: flex-end
+        // border: 5px solid yellow
+
+        .brand_img_wrap
+            overflow: hidden
+            width: 5rem
+            height: 5rem
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+                margin-right: 10px
+
+        .brand_name
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+            align-items: flex-start
+
+    div.line2
+        padding: 10px 0
+        width: 100%
+        // text-indent: 1rem
+        // border: 1px solid blue
+
+    div:nth-child(3)
+        width: 100%
+        // border: 1px solid red
+        text-align: center
+        padding: 10px 0
+
+        button
+            display: inline-block
+            border-radius: 20px
+            appearance: none
+            outline: none
+            padding: 5px 20px
+            background-color: white
+            border: 2px solid #eec79b
+            color: #eec79b
+
+.product_description_footer
+    margin-top: 10px
+    box-shadow: 0 0 6px 1px #cccccc
+    width: 100vw
+    background-color: white
+    box-sizing: border-box
+    // border: 2px solid red
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+
+    span
+        display: inline-block
+        text-align: center
+
+    .collection
+        padding: 4px 0
+        border-right: 1px solid #cccccc
+        width: 20%
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-items: center
+        align-items: center
+        font-size: 12px
+        color: #cccccc
+        img
+            width: 1.4rem
+            height: 1.4rem
+
+    .add_to_cart
+        width: 40%
+        height: 100%
+        font-size: 16px
+        color: black
+        // border: 1px solid blue
+
+    .immediately
+        width: 40%
+        height: 100%
+        font-size: 16px
+        color: black
+        // border: 1px solid yellow

@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import Footer from './credit_shop_footer.jsx';
 
-export default class CreditShop extends React.Component{
+class CreditShop extends React.Component{
 
     constructor(props){
         super(props)
@@ -28,10 +31,11 @@ export default class CreditShop extends React.Component{
     componentDidMount() {
       window.addEventListener('scroll', this.scrollAnimation);
       this.initial_animation();
+      console.log(this.props.ceshi.toJS())
     }
 
     componentWillReceiveProps(nextProps){
-      // console.log(nextProps)
+      console.log(nextProps)
     }
 
     initial_animation = () => {
@@ -431,8 +435,32 @@ export default class CreditShop extends React.Component{
             {/* 商品列表结尾处 */}
 
       </div>
+
+      <Footer />
       </div>
     );
   }
 
 }
+
+const credit_shop = connect(
+  (state, ownProps)=>{
+    console.log('ownProps: ', ownProps)
+    return {
+      ceshi: state,
+      user: state.getIn(['authentication', 'user']) || null,
+    }
+  },
+  (dispatch, ownProps)=>{
+    return {
+      onceshi: ()=>{
+        dispatch({
+          type: 'CESHI',
+          data: '123456789'
+        })
+      }
+    }
+  }
+)(CreditShop)
+
+export default credit_shop

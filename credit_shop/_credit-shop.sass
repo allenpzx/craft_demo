@@ -266,6 +266,7 @@
         align-items: flex-end
         position: relative
         padding-bottom: 5px
+        background-color: white
 
         div:nth-child(1)
             // border: 1px solid yellow
@@ -427,7 +428,6 @@
 .swiper-view-container
     padding-bottom: 10px
     // height: 100%
-    direction: ltr
     position: relative
     white-space:nowarp
     box-sizing: content-box
@@ -438,11 +438,6 @@
     will-change: transform
     transform: translateX(0%)
 
-    // display: flex
-    // flex-direction: row
-    // flex-wrap: nowrap
-    // justify-content: flex-start
-    // align-items: center
 
     .swiper-view-item
         width: 100%
@@ -542,3 +537,44 @@
         width: 30%
         height: 1px
         background-color: #cccccc
+
+.credit_shop_footer
+    margin: 0 auto
+    width: 95vw
+    min-height: 5vh
+    background-color: white
+    box-shadow: 0px -2px 6px 0px #ccc
+    box-sizing: border-box
+
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    justify-content: center
+    align-items: center
+    overflow: hidden
+
+    div
+        padding: 4px 0
+        display: flex
+        flex-direction: column
+        flex-wrap: nowrap
+        justify-items: center
+        align-items: center
+        font-size: 12px 
+        color: #cccccc
+
+    img
+        width: 1.6rem
+        height: 1.6rem
+
+    div:nth-child(1)
+        width: 50vw
+        border-right: 1px solid #cccccc
+
+    div:nth-child(2)
+        width: 50vw
+
+
+.product_image
+    width: 100vw
+    overflow: hidden
